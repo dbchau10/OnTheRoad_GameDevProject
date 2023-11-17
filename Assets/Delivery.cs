@@ -38,5 +38,10 @@ public class Delivery : MonoBehaviour
             hasPackage = false;
             spriteRenderer.color = noPackageColor;
         }
+
+        if(other.tag == "OneWayRoad")
+        {
+            Debug.Log("One way road");
+        }
     }
 }
