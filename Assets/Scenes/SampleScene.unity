@@ -2417,7 +2417,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1180483944}
   - component: {fileID: 1180483943}
-  - component: {fileID: 1180483946}
   - component: {fileID: 1180483947}
   - component: {fileID: 1180483949}
   - component: {fileID: 1180483950}
@@ -2496,18 +2495,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1180483946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180483942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdf61d12306900469f9355a18474d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1180483947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,8 +2507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8960e6a9ae8c3f44a46e635503db2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerSpeed: 500
-  moveSpeed: 10
+  steerSpeed: 120
+  initMoveSpeed: 15
+  moveSpeed: 15
   slowSpeed: 5
   boostSpeed: 30
 --- !u!50 &1180483949
