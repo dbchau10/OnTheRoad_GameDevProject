@@ -16,7 +16,9 @@ public class Driver2 : MonoBehaviour
     [SerializeField] Rigidbody2D player;
 
     bool isMoving = false;
-    float direction = 0;
+    private float _direction = 0;
+    private string trueDirection = "";
+    bool isPennalized = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class Driver2 : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) && !isMoving) isMoving = true;
         if (isMoving)
         {
-            direction = Mathf.Sign(Vector2.Dot(player.velocity, player.GetRelativeVector(Vector2.up)));
+            _direction = Mathf.Sign(Vector2.Dot(player.velocity, player.GetRelativeVector(Vector2.up)));
             player.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * moveSpeed);
             player.AddRelativeForce(Vector2.right * player.velocity.magnitude * Input.GetAxis("Horizontal") / 2);
             if (!ps.isEmitting)
@@ -54,6 +56,36 @@ public class Driver2 : MonoBehaviour
                 //Debug.Log("Emit FUmes" + Time.deltaTime);
             }
         }
+    }
+
+    public string getDirection()
+    {
+        if(Input.GetKeyDown(KeyCode.UpArrow) && _direction < 0)
+        {
+            trueDirection = "d";
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow) && _direction > 0)
+        {
+            trueDirection = "u";
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && _direction > 0)
+        {
+            trueDirection = "u";
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) && _direction < 0)
+        {
+            trueDirection = "d";
+        }
+
+
+        return trueDirection;
+    }
+
+    public void penalize()
+    { 
+        Debug.Log("Minus time, show warning");
     }
 
 

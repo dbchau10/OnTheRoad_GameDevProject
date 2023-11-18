@@ -7,24 +7,58 @@ public class Delivery : MonoBehaviour
 {
 
     bool hasPackage;
+    bool isPennalize;
     [SerializeField] float deleteTime = 0.5f;
     [SerializeField] Color32 hasPackageColor = new Color32(0,1,0,1);
     [SerializeField] Color32 noPackageColor = new Color32(1,1,1,1);
+    Color32 lerpColor;
+    int blinkSpeed = 1;
 
+    [SerializeField]Rigidbody2D body;
 
     SpriteRenderer spriteRenderer;
+
+    Driver2 parent;
 
   
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        parent = transform.GetComponent<Driver2>();
+        body = transform.GetComponent<Rigidbody2D>();
     }
+
+    IEnumerator startFlicking()
+    {
+        
+         lerpColor = Color.Lerp(Color.black, Color.white, Mathf.PingPong(Time.time * blinkSpeed, 1.0f));
+         spriteRenderer.color = lerpColor;
+         yield return new WaitForSeconds(0.1f);
+    }
+
+    private void Update()
+    {
+        if (Mathf.Abs(body.velocity.y) <= 0.3 && Mathf.Abs(body.velocity.x) <= 0.3)
+        {
+            spriteRenderer.color = noPackageColor;
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Ouch!");
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "OneWayRoad")
+        {
+            isPennalize = false;
+            spriteRenderer.color = noPackageColor;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Package" && !hasPackage){
             Debug.Log("Package Picked Up!");
@@ -41,7 +75,43 @@ public class Delivery : MonoBehaviour
 
         if(other.tag == "OneWayRoad")
         {
-            Debug.Log("One way road");
+            OneWayRoad road = other.transform.GetComponent<OneWayRoad>();
+
+            Debug.Log("Road direction" + road.getDirection());
+            Debug.Log("moto direction" + parent.getDirection());
+
+            if (road.getDirection() < 0){
+                if(body.velocity.y < 0 || body.velocity.x < 0)
+                {
+                    isPennalize = false;
+                    spriteRenderer.color = noPackageColor;
+                }
+                else
+                {
+                    isPennalize = true;
+                    Debug.Log("One way road");
+                    parent.penalize();
+                }
+            }
+            else
+            {
+                if (body.velocity.y > 0 || body.velocity.x > 0)
+                {
+                    isPennalize = false;
+                    spriteRenderer.color = noPackageColor;
+                }
+                else
+                {
+                    isPennalize = true;
+                    Debug.Log("One way road");
+                    parent.penalize();
+                }
+            }
+            
+            if(isPennalize)
+                StartCoroutine(startFlicking());
+           
+            
         }
     }
 }
