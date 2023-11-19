@@ -38,7 +38,7 @@ public class Delivery : MonoBehaviour
 
     private void Update()
     {
-        if (Mathf.Abs(body.velocity.y) <= 0.3 && Mathf.Abs(body.velocity.x) <= 0.3)
+        if (Mathf.Abs(body.velocity.y) <= 0.5 && Mathf.Abs(body.velocity.x) <= 0.5)
         {
             spriteRenderer.color = noPackageColor;
         }
@@ -51,7 +51,7 @@ public class Delivery : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "OneWayRoad")
+        if (collision.tag == "OneWayRoad" || collision.tag == "SpeedLimitedRoad")
         {
             isPennalize = false;
             spriteRenderer.color = noPackageColor;
@@ -109,9 +109,27 @@ public class Delivery : MonoBehaviour
             }
             
             if(isPennalize)
+                StartCoroutine(startFlicking()); 
+        }
+
+        if(other.tag == "SpeedLimitedRoad")
+        {
+            SpeedLimitedRoad road = other.gameObject.GetComponent<SpeedLimitedRoad>();
+            if(road.getSpeed() < Mathf.Abs(body.velocity.x) || road.getSpeed() < Mathf.Abs(body.velocity.y))
+            {
+                isPennalize = false;
+                spriteRenderer.color = noPackageColor;
+            }
+            else
+            {
+                Debug.Log("Exceed current speed limit: " + road.getSpeed());
+                parent.penalize();
+                isPennalize = true;
+            }
+
+            if (isPennalize)
                 StartCoroutine(startFlicking());
-           
-            
+
         }
     }
 }
