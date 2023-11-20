@@ -7,6 +7,8 @@ TagManager:
   - Package
   - Customer
   - SpeedUp
+  - OneWayRoad
+  - SpeedLimitedRoad
   layers:
   - Default
   - TransparentFX
