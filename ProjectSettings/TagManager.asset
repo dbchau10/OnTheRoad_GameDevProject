@@ -43,6 +43,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Road
+    uniqueID: 2725912347
+    locked: 0
+  - name: Sidewalk
+    uniqueID: 2886298687
+    locked: 0
+  - name: Asset
+    uniqueID: 187290927
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
