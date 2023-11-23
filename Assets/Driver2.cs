@@ -10,19 +10,21 @@ public class Driver2 : MonoBehaviour
     [SerializeField] float initMoveSpeed = 35f;
     [SerializeField] float moveSpeed = 35f;
 
-    [SerializeField] float slowSpeed = 15f;
+    [SerializeField] float slowSpeed = 5f;
     [SerializeField] float boostSpeed = 30f;
-    [SerializeField] ParticleSystem ps;
+    [SerializeField] ParticleSystem ps, psBrake;
     [SerializeField] Rigidbody2D player;
+    [SerializeField] GameObject back;
 
     bool isMoving = false;
     private float _direction = 0;
     private string trueDirection = "";
     bool isPennalized = false;
+    private float prevRotation;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = transform.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,8 +34,14 @@ public class Driver2 : MonoBehaviour
         float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         //transform.Rotate(0, 0, -steerAmount);
         //transform.Translate(0,moveAmount, 0);
+        //Debug.Log(Quaternion.Angle(transform.rotation, back.transform.rotation));
 
-        player.angularVelocity += -(Input.GetAxis("Horizontal") * steerSpeed);
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            psBrake.Play();
+        }
+
         if ((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)) && isMoving)
         {
             isMoving = false;
@@ -47,8 +55,13 @@ public class Driver2 : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) && !isMoving) isMoving = true;
         if (isMoving)
         {
+            float mSpeed = moveSpeed;
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                mSpeed = moveSpeed / 100f;
+            }
             _direction = Mathf.Sign(Vector2.Dot(player.velocity, player.GetRelativeVector(Vector2.up)));
-            player.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * moveSpeed);
+            player.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * mSpeed);
             player.AddRelativeForce(Vector2.right * player.velocity.magnitude * Input.GetAxis("Horizontal") / 2);
             if (!ps.isEmitting)
             {
@@ -56,6 +69,29 @@ public class Driver2 : MonoBehaviour
                 //Debug.Log("Emit FUmes" + Time.deltaTime);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            prevRotation = transform.rotation.z;
+            Debug.Log("prep" + prevRotation);
+        }
+
+        player.angularVelocity += -(Input.GetAxis("Horizontal") * steerSpeed);
+
+        //if (player.transform.rotation.z > prevRotation + 25)
+        //{
+        //    transform.rotation = Quaternion.AngleAxis(360-prevRotation, new Vector3(0, 0, prevRotation + 25));
+        //    Debug.Log("45");
+        //}
+
+
+        //if (player.transform.rotation.z < prevRotation - 25)
+        //{
+        //    transform.rotation = Quaternion.AngleAxis(prevRotation - 360, new Vector3(0, 0, prevRotation - 25));
+        //    Debug.Log("-45");
+        //}
+
+
     }
 
     public string getDirection()
