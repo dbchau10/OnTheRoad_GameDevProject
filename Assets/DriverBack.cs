@@ -5,12 +5,12 @@ using UnityEngine;
 public class DriverBack : MonoBehaviour
 {
     [SerializeField] float followSpeed = 35f;
-    [SerializeField] float turningSpeed = 35f;
     [SerializeField] GameObject followObject;
     [SerializeField] Rigidbody2D rb, rb2;
     private Vector2 dir;
-    private Quaternion prev;
-    private bool movingBack = false;
+    private Quaternion prev, qr;
+    private bool isMovingBack = false;
+    private bool isTurning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,31 +20,51 @@ public class DriverBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+
+            isTurning = true;
+        }
+
+        //if (transform)
+
+        if (Input.GetKey(KeyCode.DownArrow)) isMovingBack = true;
+
         if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
 
-            //StartCoroutine(cr());
+            isTurning = false;
         }
-        prev = transform.rotation;
-        if (rb2.velocity.magnitude > 1f)
-        dir = new Vector2(followObject.transform.position.x - transform.position.x, followObject.transform.position.y - transform.position.y);
 
-        Debug.Log(dir);
-        if (Input.GetKey(KeyCode.DownArrow)) movingBack = true;
-
-
-        if (!movingBack)
-        transform.up = Vector3.Slerp(transform.up, dir, Time.deltaTime * followSpeed);
-
-        if (rb2.velocity.magnitude > 1f || !((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))))
+        if (true)
         {
             transform.position = Vector2.Lerp(transform.position, followObject.transform.position, Time.deltaTime * followSpeed);
             Debug.Log("moveee");
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) && movingBack)
+        prev = transform.rotation;
+        dir = new Vector2(followObject.transform.position.x - transform.position.x, followObject.transform.position.y - transform.position.y);
+
+        if (!isMovingBack)
+            transform.up = Vector3.Slerp(transform.up, dir, Time.deltaTime * followSpeed);
+
+        if (rb2.velocity.magnitude < 1f && transform.rotation.z != rb2.transform.rotation.z && !isTurning)
         {
-            movingBack = false;
+            isTurning = true;
+            //transform.Rotate(transform.forward, transform.rotation.z < rb2.transform.rotation.z ? rb2.transform.rotation.z - transform.rotation.z : transform.rotation.z - rb2.transform.rotation.z);
+            qr = Quaternion.Euler(new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, rb2.transform.localEulerAngles.z));
+        }
+
+        if (isTurning) transform.rotation = Quaternion.Lerp(transform.rotation, qr, 0.13f);
+
+        if (transform.rotation.z == rb2.transform.rotation.z) isTurning = false;
+
+        //Debug.Log(dir);
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            isTurning = false;
+            if (isMovingBack) isMovingBack = false;
         }
 
         //rb.velocity = rb2.velocity;
@@ -67,14 +87,14 @@ public class DriverBack : MonoBehaviour
     //    }
     //}
 
-    IEnumerator cr()
-    {
-        float time = 5f;
-        while (time > 0f)
-        {
-            time -= Time.deltaTime;
-            transform.up = Vector3.Slerp(transform.up, dir, Time.deltaTime * followSpeed);
-            yield return null;
-        }
-    }
+    //IEnumerator cr()
+    //{
+    //    float time = 5f;
+    //    while (time > 0f)
+    //    {
+    //        time -= Time.deltaTime;
+    //        transform.up = Vector3.Slerp(transform.up, dir, Time.deltaTime * followSpeed);
+    //        yield return null;
+    //    }
+    //}
 }

@@ -19,7 +19,6 @@ public class Driver2 : MonoBehaviour
     bool isMoving = false;
     private float _direction = 0;
     private string trueDirection = "";
-    bool isPennalized = false;
     private float prevRotation;
     // Start is called before the first frame update
     void Start()
@@ -58,7 +57,8 @@ public class Driver2 : MonoBehaviour
             float mSpeed = moveSpeed;
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                mSpeed = moveSpeed / 100f;
+                if (player.velocity.magnitude >= 1f) mSpeed = moveSpeed / 100f;
+                else mSpeed = 0;
             }
             _direction = Mathf.Sign(Vector2.Dot(player.velocity, player.GetRelativeVector(Vector2.up)));
             player.AddRelativeForce(Vector2.up * Input.GetAxis("Vertical") * mSpeed);

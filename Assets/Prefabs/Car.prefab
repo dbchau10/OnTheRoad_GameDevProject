@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4016347864436428539}
@@ -9882,7 +9882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followSpeed: 50
-  turningSpeed: 2
   followObject: {fileID: 8086883178190914265}
   rb: {fileID: 0}
   rb2: {fileID: 6944413226112637018}
@@ -9991,7 +9990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steerSpeed: 130
   initMoveSpeed: 35
-  moveSpeed: 25
+  moveSpeed: 40
   slowSpeed: 15
   boostSpeed: 30
   ps: {fileID: 3106538765207132431}
@@ -10011,7 +10010,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.15
-  m_LinearDrag: 3.5
+  m_LinearDrag: 3
   m_AngularDrag: 90
   m_GravityScale: 0
   m_Material: {fileID: 0}

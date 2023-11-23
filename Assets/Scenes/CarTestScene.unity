@@ -623,6 +623,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 1665241695502806143, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510076198394441442, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692896642645034905, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6742493147287284067, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1
@@ -662,6 +674,10 @@ PrefabInstance:
     - target: {fileID: 6742493147287284067, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944413226112637018, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -852,7 +868,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.048, y: 2.048}
+    oldSize: {x: 20.48, y: 20.48}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
