@@ -14,11 +14,11 @@ public class Delivery : MonoBehaviour
     Color32 lerpColor;
     int blinkSpeed = 1;
 
-    [SerializeField]Rigidbody2D body;
+    [SerializeField] Rigidbody2D body;
 
     SpriteRenderer spriteRenderer;
 
-    Driver2 parent;
+    [SerializeField] Driver2 parent;
 
   
     void Start()
@@ -30,7 +30,7 @@ public class Delivery : MonoBehaviour
 
     IEnumerator startFlicking()
     {
-        
+        Debug.Log("flickering");
          lerpColor = Color.Lerp(Color.black, Color.white, Mathf.PingPong(Time.time * blinkSpeed, 1.0f));
          spriteRenderer.color = lerpColor;
          yield return new WaitForSeconds(0.1f);

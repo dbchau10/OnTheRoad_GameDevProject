@@ -19,7 +19,7 @@ public class Driver2 : MonoBehaviour
     bool isMoving = false;
     private float _direction = 0;
     private string trueDirection = "";
-    private float prevRotation;
+    private Quaternion prevRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,7 @@ public class Driver2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
+        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * 100 * Time.deltaTime;
         float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         //transform.Rotate(0, 0, -steerAmount);
         //transform.Translate(0,moveAmount, 0);
@@ -50,6 +50,7 @@ public class Driver2 : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             player.angularVelocity = 0;
+            steerAmount = 0;
         }
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) && !isMoving) isMoving = true;
         if (isMoving)
@@ -72,11 +73,21 @@ public class Driver2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            prevRotation = transform.rotation.z;
-            Debug.Log("prep" + prevRotation);
+            //Debug.Log("prep" + prevRotation);
+            prevRotation = transform.rotation;
         }
 
-        player.angularVelocity += -(Input.GetAxis("Horizontal") * steerSpeed);
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            Debug.Log(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z));
+            if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z)) > 20f)
+            {
+                if (player.velocity.magnitude < 1f)
+                steerAmount = 0;
+            }
+        }    
+
+        player.angularVelocity += -(steerAmount);
 
         //if (player.transform.rotation.z > prevRotation + 25)
         //{
