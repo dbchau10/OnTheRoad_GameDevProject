@@ -197,7 +197,7 @@ MonoBehaviour:
     m_StrikethroughThickness: 6.298828
     m_TabWidth: 24
   m_GlyphTable:
-  - m_Index: 370
+ - m_Index: 370
     m_Metrics:
       m_Width: 51
       m_Height: 46
@@ -377,6 +377,7 @@ MonoBehaviour:
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
+
     m_Width: 70
     m_Height: 65
   - m_X: 0

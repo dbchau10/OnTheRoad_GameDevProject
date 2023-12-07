@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -18,6 +21,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    public void GameOver()
+    {
+        isGameOver = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +37,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseManager.instance.gameIsPaused)
+        if (Input.GetKeyDown(KeyCode.R) && isGameOver)
         {
-            PauseManager.instance.PauseGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseManager.instance.PauseGame();
+            Debug.Log("Calling pause menu");
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst;
+using Unity.Collections;
 using UnityEngine;
 
 public class Driver2 : MonoBehaviour
@@ -20,7 +21,16 @@ public class Driver2 : MonoBehaviour
     private float _direction = 0;
     private string trueDirection = "";
     private Quaternion prevRotation;
+    private int currentScore = 0;
     // Start is called before the first frame update
+
+    private UiManager uiManager;
+
+    private void Awake()
+    {
+        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+    }
+
     void Start()
     {
         player = transform.GetComponent<Rigidbody2D>();
@@ -130,9 +140,17 @@ public class Driver2 : MonoBehaviour
         return trueDirection;
     }
 
-    public void penalize()
-    { 
+    public void penalize(int amount)
+    {
+        currentScore = Mathf.Clamp(currentScore + amount, 0, 999999);
         Debug.Log("Minus time, show warning");
+        uiManager.changeScore(currentScore);
+    }
+
+    public void addBonusTime(int amount)
+    {
+        Debug.Log("Bonus time");
+        uiManager.AdjustTimeLeft(amount);
     }
 
 
