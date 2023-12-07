@@ -60,17 +60,10 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Package" && !hasPackage){
+        if (other.tag == "Package"){
             Debug.Log("Package Picked Up!");
-            hasPackage = true;
             Destroy(other.gameObject, deleteTime);
-            spriteRenderer.color = hasPackageColor;
-        }
-        
-        if (other.tag == "Customer" && hasPackage){
-            Debug.Log("Package Deliveried Successfully!");
-            hasPackage = false;
-            spriteRenderer.color = noPackageColor;
+            parent.addBonusTime(8);
         }
 
         if(other.tag == "OneWayRoad")
@@ -90,7 +83,7 @@ public class Delivery : MonoBehaviour
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
-                    parent.penalize();
+                    parent.penalize(-10);
                 }
             }
             else
@@ -104,7 +97,7 @@ public class Delivery : MonoBehaviour
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
-                    parent.penalize();
+                    parent.penalize(-10);
                 }
             }
             
@@ -123,7 +116,7 @@ public class Delivery : MonoBehaviour
             else
             {
                 Debug.Log("Exceed current speed limit: " + road.getSpeed());
-                parent.penalize();
+                parent.penalize(-4);
                 isPennalize = true;
             }
 
