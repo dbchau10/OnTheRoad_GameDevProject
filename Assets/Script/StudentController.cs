@@ -35,7 +35,7 @@ public class StudentController : MonoBehaviour
     }
     void Update() {
 
-        if (FindObjectOfType<ChangeTrafficLightState>().trafficLightState == "Red"){
+        if (FindObjectOfType<ChangeTrafficLightState>().trafficLightState == LightState.Red){
 
         }
         timer -= Time.deltaTime;
