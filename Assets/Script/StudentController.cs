@@ -7,9 +7,9 @@ public class StudentController : MonoBehaviour
      public float speed = 1.5f;
     public bool vertical;
     Rigidbody2D rigidbody2D_;
-    public float changeTime = 3.0f;
+    public float changeTime = 3f;
     float timer;
-    int direction = 1;
+    public int direction = -1;
 
     public GameObject TrafficLight;
     Animator animator;
@@ -27,18 +27,10 @@ public class StudentController : MonoBehaviour
        
     }
 
-       public enum LightState
-    {
-        Red,
-        Yellow,
-        Green
-    }
     void Update() {
 
-        if (FindObjectOfType<ChangeTrafficLightState>().trafficLightState == LightState.Red){
-
-        }
-        timer -= Time.deltaTime;
+        if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red"){
+             timer -= Time.deltaTime;
         if (timer < 0) {
             direction = -direction; 
             timer = changeTime;
@@ -54,8 +46,13 @@ public class StudentController : MonoBehaviour
         animator.SetFloat("Move Y", 0); 
         animator.SetFloat("Move X", direction);
         }
+        }
+        else return;
+       
     }
     void FixedUpdate() {
+
+         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red"){
       
         Vector2 position = rigidbody2D_.position;
         if (vertical) {
@@ -65,6 +62,8 @@ public class StudentController : MonoBehaviour
             position.x = position.x + Time.deltaTime * speed * direction;
         }
         rigidbody2D_.MovePosition(position);
+         }
+         else return;
     }
 
    

@@ -13,7 +13,7 @@ public class AnswerScript : MonoBehaviour
         if (isCorrect){
             Debug.Log("Correct Answer");
             quizManager.correct();
-            GetComponent<Button>().colors.normalColor = Color.red;
+            // GetComponent<Button>().colors.normalColor = Color.red;
         
         }
         else {

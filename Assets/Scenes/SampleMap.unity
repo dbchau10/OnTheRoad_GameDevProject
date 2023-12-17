@@ -135,13 +135,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: SchoolGirl_0
       objectReference: {fileID: 0}
+    - target: {fileID: 2333641208101901740, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: changeTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: TrafficLight
+      value: 
+      objectReference: {fileID: 550588025}
+    - target: {fileID: 5102793974047479693, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8655778551341673711, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.9
+      value: -11.2
       objectReference: {fileID: 0}
     - target: {fileID: 8655778551341673711, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 48.6
+      value: 49.4
       objectReference: {fileID: 0}
     - target: {fileID: 8655778551341673711, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4779,6 +4803,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight
       objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: redLightTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: greenLightTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: yellowLightTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8231072960703944002, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -5572,6 +5608,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
+--- !u!1 &550588025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1723547348129125705, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+  m_PrefabInstance: {fileID: 465038212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &566228529
 GameObject:
   m_ObjectHideFlags: 0
