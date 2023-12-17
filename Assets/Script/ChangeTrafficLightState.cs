@@ -8,9 +8,9 @@ public class ChangeTrafficLightState : MonoBehaviour
     public Sprite yellowLight;
     public Sprite greenLight;
 
-    public float redLightTime = 2f;
-    public float yellowLightTime = 2f;
-    public float greenLightTime = 4f;
+    public float redLightTime = 20f;
+    public float yellowLightTime = 3f;
+    public float greenLightTime = 15f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,7 +21,10 @@ public class ChangeTrafficLightState : MonoBehaviour
         Green
     }
 
-    public LightState currentLightState;
+     LightState currentLightState;
+
+      public LightState trafficLightState { get {return currentLightState; } set {currentLightState = value; }}
+
 
     void Start()
     {
