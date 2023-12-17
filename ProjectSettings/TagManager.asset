@@ -9,6 +9,7 @@ TagManager:
   - SpeedUp
   - OneWayRoad
   - SpeedLimitedRoad
+  - HeadCar
   layers:
   - Default
   - TransparentFX
