@@ -17,7 +17,7 @@ public class UiManager : MonoBehaviour
     private int roundedRestSeconds;
     private float displaySeconds;
     private float displayMinutes;
-    [SerializeField] int CountDownSeconds = 120;
+    public int CountDownSeconds = 120;
     [SerializeField]
     private Text _timer;
     private float Timeleft;

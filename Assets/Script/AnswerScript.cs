@@ -7,6 +7,7 @@ public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
     public QuizManager quizManager;
+    public UiManager uiManager;
 
   
     public void Answer(){
@@ -14,10 +15,17 @@ public class AnswerScript : MonoBehaviour
             Debug.Log("Correct Answer");
             quizManager.correct();
             // GetComponent<Button>().colors.normalColor = Color.red;
+            
         
         }
         else {
             Debug.Log("Wrong Answer");
         }
+
     }
+
+    public void AddTime(){
+        uiManager.CountDownSeconds+=20;
+    }
+
 }
