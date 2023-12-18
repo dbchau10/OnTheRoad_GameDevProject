@@ -11,6 +11,7 @@ public class QuizManager : MonoBehaviour
     public int CurrentQuestion;
     public TextMeshProUGUI QuestionTxt;
 
+    
 
     public GameObject QuizUI;
 
