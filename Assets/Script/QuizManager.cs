@@ -46,6 +46,7 @@ public class QuizManager : MonoBehaviour
         generateQuestion();
     }
     public void correct(){
+        QuizUI.SetActive(false);
         QnA.RemoveAt(CurrentQuestion);
         generateQuestion();
     }
