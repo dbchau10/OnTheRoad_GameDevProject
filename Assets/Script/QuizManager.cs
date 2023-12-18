@@ -37,6 +37,12 @@ public class QuizManager : MonoBehaviour
      public void QuizOpen(){
         QuizUI.SetActive(true);
     }
+
+     public void QuizSkip(){
+        QuizUI.SetActive(false);
+         QnA.RemoveAt(CurrentQuestion);
+        generateQuestion();
+    }
     public void correct(){
         QnA.RemoveAt(CurrentQuestion);
         generateQuestion();
