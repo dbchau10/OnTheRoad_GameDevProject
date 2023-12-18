@@ -22300,6 +22300,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrafficLight (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: redLightTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: greenLightTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: yellowLightTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8231072960703944002, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -24087,11 +24099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742493147287284067, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6742493147287284067, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 6742493147287284067, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28704,6 +28716,18 @@ PrefabInstance:
     - target: {fileID: 1723547348129125705, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
       propertyPath: m_Name
       value: TrafficLight (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: redLightTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: greenLightTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767504415810287610, guid: 41621dfa6c96f0c4fa43d9a31779212f, type: 3}
+      propertyPath: yellowLightTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

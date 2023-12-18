@@ -13,14 +13,13 @@ public class AnswerScript : MonoBehaviour
     public void Answer(){
         if (isCorrect){
             Debug.Log("Correct Answer");
-            quizManager.correct();
-            // GetComponent<Button>().colors.normalColor = Color.red;
-            AddTime();
+            StartCoroutine(AnswerResult(Color.green));
+           
             
         
         }
         else {
-            Debug.Log("Wrong Answer");
+               StartCoroutine(AnswerResult(Color.red));
         }
 
     }
@@ -28,6 +27,22 @@ public class AnswerScript : MonoBehaviour
     public void AddTime(){
         uiManager.CountDownSeconds+=20;
         Debug.Log(uiManager.CountDownSeconds);
+    }
+
+     IEnumerator AnswerResult(Color colorButton)
+    {
+	
+            GetComponent<Image>().color = colorButton;
+            yield return new WaitForSeconds(2);
+            if (isCorrect){
+            quizManager.correct();
+            }
+            else {
+                quizManager.QuizSkip();
+            }
+            // ColorBlock colors = GetComponent<Button>().colors;
+            GetComponent<Image>().color = Color.white;
+            AddTime();
     }
 
 }
