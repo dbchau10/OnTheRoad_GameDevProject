@@ -11,6 +11,7 @@ public class QuizManager : MonoBehaviour
     public int CurrentQuestion;
     public TextMeshProUGUI QuestionTxt;
 
+
     public GameObject QuizUI;
 
 
@@ -40,7 +41,8 @@ public class QuizManager : MonoBehaviour
 
      public void QuizSkip(){
         QuizUI.SetActive(false);
-         QnA.RemoveAt(CurrentQuestion);
+
+        //  QnA.RemoveAt(CurrentQuestion);
         generateQuestion();
     }
     public void correct(){
