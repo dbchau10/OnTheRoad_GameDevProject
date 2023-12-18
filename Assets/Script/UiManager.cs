@@ -73,10 +73,15 @@ public class UiManager : MonoBehaviour
         {
             timetext = timetext + displaySeconds.ToString();
         }
-        else
+        else if (displaySeconds >=0)
         {
             timetext = timetext + "0" + displaySeconds.ToString();
         }
+        else
+        {
+            timetext = timetext + "00";
+        }
+        
         _timer.text = timetext;
 
         if (restSeconds <= 0) GameOverSequence();

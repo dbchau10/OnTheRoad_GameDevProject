@@ -15,6 +15,7 @@ public class AnswerScript : MonoBehaviour
             Debug.Log("Correct Answer");
             quizManager.correct();
             // GetComponent<Button>().colors.normalColor = Color.red;
+            AddTime();
             
         
         }
@@ -26,6 +27,7 @@ public class AnswerScript : MonoBehaviour
 
     public void AddTime(){
         uiManager.CountDownSeconds+=20;
+        Debug.Log(uiManager.CountDownSeconds);
     }
 
 }

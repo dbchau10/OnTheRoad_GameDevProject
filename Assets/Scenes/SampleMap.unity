@@ -4660,7 +4660,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 29.96
+  orthographic size: 29.959997
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4685,7 +4685,7 @@ Transform:
   m_GameObject: {fileID: 399214177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.07681, y: -1.2030697, z: -10}
+  m_LocalPosition: {x: -27.4, y: -0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22552,6 +22552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrafficLight: {fileID: 550588025}
+  checkOpenQuiz: 0
 --- !u!1 &1319301325
 GameObject:
   m_ObjectHideFlags: 0
@@ -26071,6 +26072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrafficLight: {fileID: 1512262318}
+  checkOpenQuiz: 0
 --- !u!61 &1669450974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29487,6 +29489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrafficLight: {fileID: 550588025}
+  checkOpenQuiz: 0
 --- !u!1 &1940643770
 GameObject:
   m_ObjectHideFlags: 0
@@ -30193,6 +30196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrafficLight: {fileID: 1742578963}
+  checkOpenQuiz: 0
 --- !u!1 &1999641928
 GameObject:
   m_ObjectHideFlags: 0
