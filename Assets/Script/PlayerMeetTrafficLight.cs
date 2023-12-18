@@ -6,7 +6,7 @@ public class PlayerMeetTrafficLight : MonoBehaviour
 {
    
    public GameObject TrafficLight;
-   void OnTriggerEnter2D(Collider2D other)
+   void OnTriggerStay2D(Collider2D other)
    {
         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red"){
             if (other.tag == "HeadCar"){
