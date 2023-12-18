@@ -7,7 +7,8 @@ public class Delivery : MonoBehaviour
 {
 
     bool hasPackage;
-    bool isPennalize;
+    public bool isPennalize = false;
+    public bool isFlicking = false;
     [SerializeField] float deleteTime = 0.5f;
     [SerializeField] Color32 hasPackageColor = new Color32(0,1,0,1);
     [SerializeField] Color32 noPackageColor = new Color32(1,1,1,1);
@@ -31,16 +32,27 @@ public class Delivery : MonoBehaviour
     IEnumerator startFlicking()
     {
         Debug.Log("flickering");
-         lerpColor = Color.Lerp(Color.black, Color.white, Mathf.PingPong(Time.time * blinkSpeed, 1.0f));
-         spriteRenderer.color = lerpColor;
-         yield return new WaitForSeconds(0.1f);
+        if (!isFlicking)
+        {
+            isFlicking = true;
+            while (isPennalize && isFlicking)
+            {
+                lerpColor = Color.Lerp(Color.black, Color.white, Mathf.PingPong(Time.time * blinkSpeed, 1.0f));
+                spriteRenderer.color = lerpColor;
+                yield return new WaitForSeconds(0.1f);
+            }
+            isFlicking = false;
+        }
     }
 
     private void Update()
     {
-        if (Mathf.Abs(body.velocity.y) <= 0.5 && Mathf.Abs(body.velocity.x) <= 0.5)
+        if (body.velocity.magnitude == 0)
         {
+            Debug.Log("car stopped");
+            isPennalize = isFlicking = false;
             spriteRenderer.color = noPackageColor;
+            return;
         }
     }
 
@@ -60,50 +72,82 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Package"){
+        if (other.tag == "Package") {
             Debug.Log("Package Picked Up!");
             Destroy(other.gameObject, deleteTime);
             parent.addBonusTime(8);
         }
 
-        if(other.tag == "OneWayRoad")
+        if (other.tag == "OneWayRoad")
         {
             OneWayRoad road = other.transform.GetComponent<OneWayRoad>();
 
-            Debug.Log("Road direction" + road.getDirection());
-            Debug.Log("moto direction" + parent.getDirection());
+            //Debug.Log("Road direction" + road.getDirection());
+            //Debug.Log("moto direction" + parent.getDirection());
 
-            if (road.getDirection() < 0){
-                if(body.velocity.y < 0 || body.velocity.x < 0)
-                {
-                    isPennalize = false;
-                    spriteRenderer.color = noPackageColor;
-                }
-                else
-                {
-                    isPennalize = true;
-                    Debug.Log("One way road");
-                    parent.penalize(-10);
-                }
-            }
-            else
+            var r = road.getDirection();
+
+            if (r.x < 0)
             {
-                if (body.velocity.y > 0 || body.velocity.x > 0)
+                if (body.velocity.x <= 0)
                 {
-                    isPennalize = false;
+                    isPennalize = isFlicking = false;
                     spriteRenderer.color = noPackageColor;
                 }
-                else
+                else if (body.velocity.x > 0)
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
                     parent.penalize(-10);
                 }
             }
-            
-            if(isPennalize)
-                StartCoroutine(startFlicking()); 
-        }
+            else if (r.x > 0)
+            {
+                if (body.velocity.x >= 0)
+                {
+                    isPennalize = isFlicking = false;
+                    spriteRenderer.color = noPackageColor;
+                }
+                else if (body.velocity.x < 0)
+                {
+                    isPennalize = true;
+                    Debug.Log("One way road");
+                    parent.penalize(-10);
+                }
+            }
+            if (r.y < 0)
+            {
+                if (body.velocity.y <= 0)
+                {
+                    isPennalize = isFlicking = false;
+                    spriteRenderer.color = noPackageColor;
+                }
+                else if (body.velocity.y > 0)
+                {
+                    isPennalize = true;
+                    Debug.Log("One way road");
+                    parent.penalize(-10);
+                }
+            }
+            else if (r.y > 0)
+            {
+                if (body.velocity.y >= 0)
+                {
+                    isPennalize = isFlicking = false;
+                    spriteRenderer.color = noPackageColor;
+                }
+                else if (body.velocity.y < 0)
+                {
+                    isPennalize = true;
+                    Debug.Log("One way road");
+                    parent.penalize(-10);
+                }
+            }
+
+
+            if (isPennalize && !isFlicking)
+                StartCoroutine(startFlicking());
+        } 
 
         if(other.tag == "SpeedLimitedRoad")
         {
@@ -120,7 +164,7 @@ public class Delivery : MonoBehaviour
                 isPennalize = true;
             }
 
-            if (isPennalize)
+            if (isPennalize && !isFlicking)
                 StartCoroutine(startFlicking());
 
         }

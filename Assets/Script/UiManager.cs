@@ -17,7 +17,7 @@ public class UiManager : MonoBehaviour
     private int roundedRestSeconds;
     private float displaySeconds;
     private float displayMinutes;
-    [SerializeField] int CountDownSeconds = 120;
+    public int CountDownSeconds = 120;
     [SerializeField]
     private Text _timer;
     private float Timeleft;
@@ -73,10 +73,15 @@ public class UiManager : MonoBehaviour
         {
             timetext = timetext + displaySeconds.ToString();
         }
-        else
+        else if (displaySeconds >=0)
         {
             timetext = timetext + "0" + displaySeconds.ToString();
         }
+        else
+        {
+            timetext = timetext + "00";
+        }
+        
         _timer.text = timetext;
 
         if (restSeconds <= 0) GameOverSequence();

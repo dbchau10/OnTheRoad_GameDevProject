@@ -8,9 +8,9 @@ public class ChangeTrafficLightState : MonoBehaviour
     public Sprite yellowLight;
     public Sprite greenLight;
 
-    public float redLightTime = 2f;
-    public float yellowLightTime = 2f;
-    public float greenLightTime = 4f;
+    public float redLightTime = 20f;
+    public float yellowLightTime = 3f;
+    public float greenLightTime = 15f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,12 +21,15 @@ public class ChangeTrafficLightState : MonoBehaviour
         Green
     }
 
-    public LightState currentLightState;
+     public string  currentLightState;
+
+   
+
 
     void Start()
     {
         spriteRenderer = GetComponent <SpriteRenderer>();
-        SetLightState(LightState.Green);
+        SetLightState("Green");
         StartCoroutine(TrafficLightCycle());
     }
 
@@ -35,29 +38,29 @@ public class ChangeTrafficLightState : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(greenLightTime);
-            SetLightState(LightState.Red);
+            SetLightState("Red");
 
             yield return new WaitForSeconds(redLightTime);
-            SetLightState(LightState.Yellow);
+            SetLightState("Yellow");
 
             yield return new WaitForSeconds(yellowLightTime);
-            SetLightState(LightState.Green);
+            SetLightState("Green");
         }
     }
 
-    public void SetLightState(LightState newState)
+    public void SetLightState(string newState)
     {
         currentLightState = newState;
 
         switch (currentLightState)
         {
-            case LightState.Red:
+            case "Red":
                 spriteRenderer.sprite = redLight;
                 break;
-            case LightState.Yellow:
+            case "Yellow":
                 spriteRenderer.sprite = yellowLight;
                 break;
-            case LightState.Green:
+            case "Green":
                 spriteRenderer.sprite = greenLight;
                 break;
             default:

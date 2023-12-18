@@ -9,7 +9,7 @@ public class ResizeContainerHeight : MonoBehaviour
     public TextMeshProUGUI alertContentText;
     private float minHeight = 182.4597f;
 
-    private void Start()
+    private void Update()
     {
         UpdateContainerHeight();
     }

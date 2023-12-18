@@ -11,15 +11,19 @@ public class DriverBack : MonoBehaviour
     private Quaternion prev, qr;
     private bool isMovingBack = false;
     private bool isTurning = false;
+    SpriteRenderer sp, sp2;
     // Start is called before the first frame update
     void Start()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        sp = GetComponent<SpriteRenderer>();
+        sp2 = rb2.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        sp.color = sp2.color;
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
 

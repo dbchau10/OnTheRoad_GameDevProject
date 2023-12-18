@@ -9,6 +9,7 @@ public class FollowCamera : MonoBehaviour
    [SerializeField] GameObject thingToFollow;
     void LateUpdate()
     {
-        transform.position = thingToFollow.transform.position + new Vector3(0,0,-10);
+          var targetPosition = thingToFollow.transform.position + new Vector3(0,0,-10);
+          transform.position = new Vector3(Mathf.Clamp(targetPosition.x,-27.4f,356f), Mathf.Clamp(targetPosition.y,-0.5f,158f), targetPosition.z);
     }
 }

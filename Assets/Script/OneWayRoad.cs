@@ -31,11 +31,11 @@ public class OneWayRoad : MonoBehaviour
         }
     }
 
-    internal int getDirection()
+    internal (int x, int y) getDirection()
     {
-        if (xDirection == 0) return yDirection;
-        if (yDirection == 0) return xDirection;
+        if (xDirection == 0) return (0, yDirection);
+        if (yDirection == 0) return (0, xDirection);
 
-        return -1;
+        return (0, 0);
     }
 }

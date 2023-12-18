@@ -9,6 +9,7 @@ TagManager:
   - SpeedUp
   - OneWayRoad
   - SpeedLimitedRoad
+  - HeadCar
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Confiner
   - 
   - 
   - 
