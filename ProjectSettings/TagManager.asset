@@ -10,6 +10,7 @@ TagManager:
   - OneWayRoad
   - SpeedLimitedRoad
   - HeadCar
+  - BackCar
   layers:
   - Default
   - TransparentFX
