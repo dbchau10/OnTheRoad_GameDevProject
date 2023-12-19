@@ -87,11 +87,10 @@ public class UiManager : MonoBehaviour
         {
             timetext = timetext + "00";
         }
-        
+        }
         _timer.text = timetext;
 
         if (restSeconds <= 0) GameOverSequence();
-        }
     }
 
     void GameOverSequence()
