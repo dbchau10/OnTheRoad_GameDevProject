@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Driver2 : MonoBehaviour
 {
@@ -12,18 +14,21 @@ public class Driver2 : MonoBehaviour
     [SerializeField] float moveSpeed = 35f;
 
     [SerializeField] float slowSpeed = 5f;
-    [SerializeField] float boostSpeed = 30f;
+    [SerializeField] float boostSpeed = 100f;
     [SerializeField] ParticleSystem ps, psBrake;
     [SerializeField] Rigidbody2D player;
     [SerializeField] GameObject back;
 
+    public TextMeshProUGUI CoinCounts;
+
+    public int coins;
     bool isMoving = false;
     private float _direction = 0;
     private string trueDirection = "";
     private Quaternion prevRotation;
     private int currentScore = 0;
     // Start is called before the first frame update
-
+    public CoinCollection coinCollects;
     private UiManager uiManager;
 
     private void Awake()
@@ -158,6 +163,13 @@ public class Driver2 : MonoBehaviour
     {
         if (other.tag == "SpeedUp"){
             StartCoroutine(SpeedBoost(5f));
+            Destroy(other.gameObject);
+        }
+        else if (other.tag == "Coin"){
+            coins++;
+            // coinCollects.StartCoinMove(other.transform.position);
+            CoinCounts.GetComponent<TextMeshProUGUI>().text = coins.ToString();
+            Destroy(other.gameObject);
         }
     }
 

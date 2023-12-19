@@ -7,7 +7,12 @@ public class PlayerMeetTrafficLight : MonoBehaviour
    
    public GameObject TrafficLight;
    public GameObject WarningTimer;
+
+   public GameObject Snackbar;
    public bool checkOpenQuiz=false;
+
+
+ 
 
 //    public bool checkSkip = false;
    void OnTriggerStay2D(Collider2D other)
@@ -26,6 +31,9 @@ public class PlayerMeetTrafficLight : MonoBehaviour
     {
          if (other.tag == "HeadCar"){
                 WarningTimer.GetComponent<WarningTimer>().StopWarning();
+                var snackbar = Snackbar.GetComponent<MoveModal>();
+                snackbar.gameObject.SetActive(false);
+             
                
             }
     }
@@ -35,6 +43,10 @@ public class PlayerMeetTrafficLight : MonoBehaviour
         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" ){
             if (other.tag == "HeadCar"){
                 WarningTimer.GetComponent<WarningTimer>().Warning();
+                var snackbar = Snackbar.GetComponent<MoveModal>();
+                snackbar.content = "Bạn đang vượt đèn đỏ!";
+                snackbar.gameObject.SetActive(true);
+             
                
             }
         }
