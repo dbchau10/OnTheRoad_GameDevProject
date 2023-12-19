@@ -167,6 +167,8 @@ public class Driver2 : MonoBehaviour
         }
         else if (other.tag == "Coin"){
             coins++;
+            currentScore++;
+            uiManager.changeScore(currentScore);
             // coinCollects.StartCoinMove(other.transform.position);
             CoinCounts.GetComponent<TextMeshProUGUI>().text = coins.ToString();
             Destroy(other.gameObject);
