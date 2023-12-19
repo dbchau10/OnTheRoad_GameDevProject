@@ -10624,7 +10624,7 @@ MonoBehaviour:
   _scoreText: {fileID: 1650315870}
   _gameOverText: {fileID: 1701058159}
   _restartText: {fileID: 1714711854}
-  CountDownSeconds: 10
+  CountDownSeconds: 120
   _timer: {fileID: 2031241783}
   gameUIControl: {fileID: 545381465}
 --- !u!114 &750124251
