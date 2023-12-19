@@ -25,6 +25,8 @@ public class UiManager : MonoBehaviour
 
     public static Timer instance;
 
+    public GameManagerUI gameUIControl;
+
     public void changeScore(double score)
     {
         _scoreText.text = "Score: " + score;
@@ -69,6 +71,10 @@ public class UiManager : MonoBehaviour
         displayMinutes = (roundedRestSeconds / 60) % 60;
 
         timetext = (displayMinutes.ToString() + ":");
+        bool gameDone = FindObjectOfType<GameManagerUI>().gameDone;
+        if (gameDone){
+             timetext = "00:00";
+        }else {
         if (displaySeconds > 9)
         {
             timetext = timetext + displaySeconds.ToString();
@@ -81,7 +87,7 @@ public class UiManager : MonoBehaviour
         {
             timetext = timetext + "00";
         }
-        
+        }
         _timer.text = timetext;
 
         if (restSeconds <= 0) GameOverSequence();
@@ -89,10 +95,12 @@ public class UiManager : MonoBehaviour
 
     void GameOverSequence()
     {
-        _gameOverText.gameObject.SetActive(true);
-        _restartText.gameObject.SetActive(true);
+        // _gameOverText.gameObject.SetActive(true);
+        // _restartText.gameObject.SetActive(true);
         GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
-        StartCoroutine(flickering());
+        gameUIControl.GetComponent<GameManagerUI>().GameOver();
+           
+        // StartCoroutine(flickering());
     }
 
     IEnumerator flickering()

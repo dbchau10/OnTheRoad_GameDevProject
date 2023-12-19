@@ -26,6 +26,8 @@ public class Timer : MonoBehaviour
     void Start()
     {
         startTime = Time.deltaTime;
+        Timeleft = restSeconds = displaySeconds = CountDownSeconds = 120;
+
     }
 
 

@@ -10,6 +10,8 @@ TagManager:
   - OneWayRoad
   - SpeedLimitedRoad
   - HeadCar
+  - BackCar
+  - Coin
   layers:
   - Default
   - TransparentFX

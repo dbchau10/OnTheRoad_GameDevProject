@@ -11,7 +11,7 @@ public class QuizManager : MonoBehaviour
     public int CurrentQuestion;
     public TextMeshProUGUI QuestionTxt;
 
-    
+
 
     public GameObject QuizUI;
 
@@ -51,6 +51,7 @@ public class QuizManager : MonoBehaviour
         QnA.RemoveAt(CurrentQuestion);
         generateQuestion();
     }
+
     void SetAnswers(){
         for (int i= 0; i < Options.Length; i++){
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
