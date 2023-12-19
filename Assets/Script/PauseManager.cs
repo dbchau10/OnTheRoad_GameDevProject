@@ -27,6 +27,7 @@ public class PauseManager : MonoBehaviour
     public void QuitLevel()
     {
         SceneManager.LoadScene("MainMenuScene");
+        Time.timeScale = 1;
 
         //Lưu lại thông tin
     }
