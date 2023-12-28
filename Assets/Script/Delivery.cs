@@ -49,7 +49,7 @@ public class Delivery : MonoBehaviour
     {
         if (body.velocity.magnitude == 0)
         {
-            Debug.Log("car stopped");
+            //Debug.Log("car stopped");
             isPennalize = isFlicking = false;
             spriteRenderer.color = noPackageColor;
             return;

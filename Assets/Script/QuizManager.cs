@@ -14,10 +14,28 @@ public class QuizManager : MonoBehaviour
 
 
     public GameObject QuizUI;
+    public TextAsset jsonFile;
 
+    public static List<QuestionAndAnswer> ShuffleIntList(List<QuestionAndAnswer> list)
+    {
+        var random = new System.Random();
+        var newShuffledList = new List<QuestionAndAnswer>();
+        var listcCount = list.Count;
+        for (int i = 0; i < listcCount; i++)
+        {
+            var randomElementInList = random.Next(0, list.Count);
+            newShuffledList.Add(list[randomElementInList]);
+            list.Remove(list[randomElementInList]);
+        }
+        return newShuffledList;
+    }
 
     private void Start(){
 
+        var questionsInJson = JsonUtility.FromJson<QuestionAndAnswerList>(jsonFile.text);
+
+        foreach(var q in questionsInJson.questions)
+            QnA.Add(q);
         AddQuestion("Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm ?", 
             new string[] { "Bất cứ đèn nào miễn là mắt nhìn rõ phía trước", 
                 "Chỉ bật đèn chiếu xa (đèn pha) khi không nhìn rõ đường", 
@@ -234,12 +252,27 @@ public class QuizManager : MonoBehaviour
           new string[] { "Xe thô sơ phải đi trên làn đường bên trái ngoài cùng, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải.",
                 "Xe thô sơ phải đi trên làn đường bên phải trong cùng; xe cơ giới, xe máy chuyên dùng đi trên làn đường bên trái",
                 "Xe thô sơ đi trên làn đường phù hợp không gây cản trở giao thông, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải.",}, 2);
+
+        var questionsInJson2 = JsonUtility.FromJson<QuestionAndAnswerList>(jsonFile.text);
+
+        foreach (var q in questionsInJson2.questions)
+            QnA.Add(q);
+
+
+        QnA = ShuffleIntList(QnA);
+        Debug.Log("Number of quizzes: " + QnA.Count);
+
+        for(int i = 0; i < QnA.Count; i++)
+        {
+            QnA[i].Question = i.ToString() + ". " + QnA[i].Question;
+            Debug.Log(QnA[i].Question);
+        }
         generateQuestion();
     }
 
     void AddQuestion(string question, string[] answers, int correctAnswer)
     {
-        QuestionAndAnswer qa = new QuestionAndAnswer
+        QuestionAndAnswer qa = new()
         {
             Question = question,
             Answers = answers,
@@ -266,7 +299,8 @@ public class QuizManager : MonoBehaviour
     }
 
     void SetAnswers(){
-        for (int i= 0; i < Options.Length; i++){
+        var options = QnA[CurrentQuestion].Answers;
+        for (int i= 0; i < options.Length; i++){
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
         
