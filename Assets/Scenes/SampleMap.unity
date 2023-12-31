@@ -23963,6 +23963,7 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 2054652616}
   uiManager: {fileID: 750124250}
+  ContinueBtn: {fileID: 0}
 --- !u!114 &1196689866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27396,6 +27397,7 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 2054652616}
   uiManager: {fileID: 750124250}
+  ContinueBtn: {fileID: 0}
 --- !u!114 &1460281582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32072,6 +32074,7 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 2054652616}
   uiManager: {fileID: 750124250}
+  ContinueBtn: {fileID: 0}
 --- !u!114 &1777189670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35502,6 +35505,7 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 2054652616}
   uiManager: {fileID: 750124250}
+  ContinueBtn: {fileID: 0}
 --- !u!114 &2006467472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35949,6 +35953,7 @@ MonoBehaviour:
   - {fileID: 1460281577}
   CurrentQuestion: 0
   QuestionTxt: {fileID: 1770113401}
+  btnPrefab: {fileID: 0}
   QuizUI: {fileID: 873439752}
   jsonFile: {fileID: 4900000, guid: 4124687589d7ab045b91e2adfa92e2a2, type: 3}
 --- !u!4 &2054652617

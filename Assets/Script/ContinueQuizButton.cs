@@ -9,6 +9,7 @@ public class ContinueQuizButton : MonoBehaviour
 
    public void HandleClick(){
     FindObjectOfType<QuizManager>().HandleContinue();
+    FindObjectOfType<QuizManager>().DisableAnswer();
     gameObject.SetActive(false);
    }
 }

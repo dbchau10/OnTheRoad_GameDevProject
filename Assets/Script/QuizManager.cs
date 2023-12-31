@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
@@ -13,10 +14,14 @@ public class QuizManager : MonoBehaviour
 
     public GameObject btnPrefab;
 
+    Scene currentScene;
 
     public GameObject QuizUI;
     public TextAsset jsonFile;
 
+    public GameObject ContinueBtn;
+
+    public GameObject QuizTimer;
     public static List<QuestionAndAnswer> ShuffleIntList(List<QuestionAndAnswer> list)
     {
         var random = new System.Random();
@@ -271,6 +276,13 @@ public class QuizManager : MonoBehaviour
         //     Debug.Log(QnA[i].Question);
         // }
         generateQuestion();
+
+        currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "QuizTest"){
+               QuizTimer.GetComponent<WarningTimer>().Warning();
+        }
+
     }
 
     void AddQuestion(string question, string[] answers, int correctAnswer)
@@ -299,9 +311,35 @@ public class QuizManager : MonoBehaviour
         Options[0].GetComponent<Image>().color = Color.white;
         generateQuestion();
 
+         if (currentScene.name == "QuizTest"){
+               QuizTimer.GetComponent<WarningTimer>().Warning();
+        }
+
 
     }
 
+
+    public void DisableAnswer(){
+        for (int i = 0; i < Options.Count; i ++){
+            Options[i].GetComponent<Button>().interactable = !Options[i].GetComponent<Button>().interactable;
+        }
+    }
+
+    public void TimeOut(){
+        DisableAnswer();
+        for (int i= 0; i < Options.Count; i++){
+           if (Options[i].GetComponent<AnswerScript>().isCorrect) {
+              Options[i].GetComponent<Image>().color = Color.green;
+           }
+           else {
+             Options[i].GetComponent<Image>().color = Color.red;
+           }
+          
+        }
+
+        ContinueBtn.SetActive(true);
+
+    }
      public void QuizSkip(){
         QuizUI.SetActive(false);
          generateQuestion();
