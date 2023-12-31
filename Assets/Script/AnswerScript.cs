@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AnswerScript : MonoBehaviour
@@ -9,8 +10,31 @@ public class AnswerScript : MonoBehaviour
     public QuizManager quizManager;
     public UiManager uiManager;
 
+    public GameObject ContinueBtn;
   
+    Scene currentScene;
+  void Start()
+  {
+         currentScene = SceneManager.GetActiveScene ();
+  }
     public void Answer(){
+
+      
+
+		
+
+		if (currentScene.name == "QuizTest") 
+		{
+            ContinueBtn.SetActive(true);
+            Debug.Log("Hello");
+            if (isCorrect){
+                SetColor(Color.green);
+            }
+            else {
+                SetColor(Color.red);
+            }
+        }
+        else {
         if (isCorrect){
             Debug.Log("Correct Answer");
             StartCoroutine(AnswerResult(Color.green));
@@ -21,7 +45,8 @@ public class AnswerScript : MonoBehaviour
         else {
                StartCoroutine(AnswerResult(Color.red));
         }
-
+        }
+      
     }
 
     public void AddTime(){
@@ -29,10 +54,14 @@ public class AnswerScript : MonoBehaviour
         Debug.Log(uiManager.CountDownSeconds);
     }
 
+
+    public void SetColor(Color colorButton){
+          GetComponent<Image>().color = colorButton;
+    }
      IEnumerator AnswerResult(Color colorButton)
     {
 	
-            GetComponent<Image>().color = colorButton;
+           SetColor(colorButton);
             yield return new WaitForSeconds(2);
             if (isCorrect){
             quizManager.correct();
@@ -41,7 +70,7 @@ public class AnswerScript : MonoBehaviour
                 quizManager.QuizSkip();
             }
             // ColorBlock colors = GetComponent<Button>().colors;
-            GetComponent<Image>().color = Color.white;
+           SetColor(Color.white);
             AddTime();
     }
 

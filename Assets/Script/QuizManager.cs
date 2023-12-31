@@ -289,15 +289,28 @@ public class QuizManager : MonoBehaviour
         QuizUI.SetActive(true);
     }
 
+    public void HandleContinue(){
+         QnA.RemoveAt(CurrentQuestion);
+       
+        for (int i = Options.Count - 1; i > 0; i--){
+            Destroy(Options[i].gameObject);
+             Options.RemoveAt(i);
+        }
+        Options[0].GetComponent<Image>().color = Color.white;
+        generateQuestion();
+
+
+    }
+
      public void QuizSkip(){
         QuizUI.SetActive(false);
+         generateQuestion();
 
-        //  QnA.RemoveAt(CurrentQuestion);
-        generateQuestion();
+       
     }
     public void correct(){
         QuizUI.SetActive(false);
-        QnA.RemoveAt(CurrentQuestion);
+         QnA.RemoveAt(CurrentQuestion);
         generateQuestion();
     }
 
@@ -307,7 +320,7 @@ public class QuizManager : MonoBehaviour
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
         
-            if (QnA[CurrentQuestion].CorrectAnswer == i + 1){
+            if (QnA[CurrentQuestion].CorrectAnswer == i ){
                 Options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
         }
@@ -317,6 +330,8 @@ public class QuizManager : MonoBehaviour
     {
         if (QnA.Count > 0)
         {
+
+          
             CurrentQuestion = Random.Range(0, QnA.Count);
             QuestionTxt.text = QnA[CurrentQuestion].Question;
             Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
