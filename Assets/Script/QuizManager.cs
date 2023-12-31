@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class QuizManager : MonoBehaviour
 {
     public List<QuestionAndAnswer> QnA;
-    public GameObject[] Options;
+    public List<GameObject> Options;
     public int CurrentQuestion;
     public TextMeshProUGUI QuestionTxt;
 
+    public GameObject btnPrefab;
 
 
     public GameObject QuizUI;
@@ -35,7 +36,9 @@ public class QuizManager : MonoBehaviour
         var questionsInJson = JsonUtility.FromJson<QuestionAndAnswerList>(jsonFile.text);
 
         foreach(var q in questionsInJson.questions)
-            QnA.Add(q);
+         QnA.Add(q);
+
+
         AddQuestion("Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm ?", 
             new string[] { "Bất cứ đèn nào miễn là mắt nhìn rõ phía trước", 
                 "Chỉ bật đèn chiếu xa (đèn pha) khi không nhìn rõ đường", 
@@ -262,11 +265,11 @@ public class QuizManager : MonoBehaviour
         QnA = ShuffleIntList(QnA);
         Debug.Log("Number of quizzes: " + QnA.Count);
 
-        for(int i = 0; i < QnA.Count; i++)
-        {
-            QnA[i].Question = i.ToString() + ". " + QnA[i].Question;
-            Debug.Log(QnA[i].Question);
-        }
+        // for(int i = 0; i < QnA.Count; i++)
+        // {
+        //     QnA[i].Question = i.ToString() + ". " + QnA[i].Question;
+        //     Debug.Log(QnA[i].Question);
+        // }
         generateQuestion();
     }
 
@@ -313,7 +316,27 @@ public class QuizManager : MonoBehaviour
         if (QnA.Count > 0) {
         CurrentQuestion = Random.Range(0,QnA.Count);
         QuestionTxt.text =  QnA[CurrentQuestion].Question;
+        Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
+        for (int i = 0; i < QnA[CurrentQuestion].Answers.Length - 1; i++){
+              GameObject others = Instantiate(btnPrefab);
+              RectTransform rectTransform = others.GetComponent<RectTransform>();
+              if (rectTransform != null)
+                {
+                
+                    rectTransform.anchoredPosition = new Vector2(firstChoicePosition.x, firstChoicePosition.y - 115f);
+                    // Debug.Log(Options[0].GetComponent<RectTransform>().offsetMax);
+                    // rectTransform.offsetMax.x = Options[0].GetComponent<RectTransform>().offsetMax.x;
+                Vector2 newOffsetMax = new Vector2(Options[0].GetComponent<RectTransform>().offsetMax.x, rectTransform.offsetMax.y );
+                rectTransform.offsetMax = newOffsetMax;
 
+                      
+                }
+              others.gameObject.SetActive(true);
+              others.transform.parent = btnPrefab.transform.parent.transform;
+              Options.Add(others);
+              firstChoicePosition = others.transform.position;
+        }
+      
         SetAnswers();
 
         }
