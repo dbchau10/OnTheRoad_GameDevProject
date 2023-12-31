@@ -12,6 +12,7 @@ TagManager:
   - HeadCar
   - BackCar
   - Coin
+  - Pointer
   layers:
   - Default
   - TransparentFX
