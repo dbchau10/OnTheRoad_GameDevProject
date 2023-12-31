@@ -312,34 +312,54 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
-    void generateQuestion(){
-        if (QnA.Count > 0) {
-        CurrentQuestion = Random.Range(0,QnA.Count);
-        QuestionTxt.text =  QnA[CurrentQuestion].Question;
-        Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
-        for (int i = 0; i < QnA[CurrentQuestion].Answers.Length - 1; i++){
-              GameObject others = Instantiate(btnPrefab);
-              RectTransform rectTransform = others.GetComponent<RectTransform>();
-              if (rectTransform != null)
+
+    void generateQuestion()
+    {
+        if (QnA.Count > 0)
+        {
+            CurrentQuestion = Random.Range(0, QnA.Count);
+            QuestionTxt.text = QnA[CurrentQuestion].Question;
+            Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
+
+            for (int i = 0; i < QnA[CurrentQuestion].Answers.Length - 1; i++)
+            {
+                GameObject newButton = Instantiate(btnPrefab);
+                RectTransform rectTransform = newButton.GetComponent<RectTransform>();
+                TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+
+                if (rectTransform != null && buttonText != null)
                 {
-                
+                    buttonText.text = QnA[CurrentQuestion].Answers[i]; // Set button text
+
+                    // Adjust button size based on text length
+                    AdjustButtonHeightBasedOnText(rectTransform, buttonText);
+
                     rectTransform.anchoredPosition = new Vector2(firstChoicePosition.x, firstChoicePosition.y - 115f);
-                    // Debug.Log(Options[0].GetComponent<RectTransform>().offsetMax);
-                    // rectTransform.offsetMax.x = Options[0].GetComponent<RectTransform>().offsetMax.x;
-                Vector2 newOffsetMax = new Vector2(Options[0].GetComponent<RectTransform>().offsetMax.x, rectTransform.offsetMax.y );
-                rectTransform.offsetMax = newOffsetMax;
 
-                      
+                    // Update position for the next button
+                    firstChoicePosition = new Vector2(firstChoicePosition.x, rectTransform.anchoredPosition.y);
                 }
-              others.gameObject.SetActive(true);
-              others.transform.parent = btnPrefab.transform.parent.transform;
-              Options.Add(others);
-              firstChoicePosition = others.transform.position;
-        }
-      
-        SetAnswers();
 
-        }
+                newButton.SetActive(true);
+                newButton.transform.SetParent(btnPrefab.transform.parent.transform, false);
+                Options.Add(newButton);
+            }
 
+            SetAnswers();
+        }
     }
+
+    void AdjustButtonHeightBasedOnText(RectTransform rectTransform, TextMeshProUGUI buttonText)
+    {
+        float paddingX = 20f; // Adjust these values as needed
+        float paddingY = 10f;
+
+        // Get preferred width and height based on button text
+        float preferredWidth = buttonText.preferredWidth;
+        float preferredHeight = buttonText.preferredHeight;
+
+        // Set button size based on preferred width and height
+        rectTransform.sizeDelta = new Vector2(preferredWidth + paddingX, preferredHeight + paddingY);
+    }
+
 }
