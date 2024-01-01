@@ -344,14 +344,20 @@ public class QuizManager : MonoBehaviour
     }
 
     bool checkStart = false;
+    bool timerReached = false;
+     float timer = 0;
     void FirstStart(){
             numberQuestion = 0;
             correctQuestion = 0; 
+            timer = 0;
+            timerReached = false;
        
         generateQuestion();
         QuizTimer.GetComponent<WarningTimer>().Warning();
         checkStart = true;
     }
+
+   
     void Update(){
         if (QuizTest){
             if (!checkStart){
@@ -373,9 +379,21 @@ public class QuizManager : MonoBehaviour
             }
 
             if (allButtonsUninteractable){
-                
+                 FinalScoreScene.SetActive(true);
+                FinalScore.text = correctQuestion.ToString() + "/10";
 
-             StartCoroutine(LoadFinalScoreScene());
+            //  StartCoroutine(LoadFinalScoreScene());
+            // if (!timerReached)
+            // timer += Time.realtimeSinceStartup;
+
+            //     if (!timerReached && timer > 10)
+            //     {
+            //         Debug.Log("Done waiting");
+                    
+            //          FinalScoreScene.SetActive(true);
+            //         FinalScore.text = correctQuestion.ToString() + "/10";
+            //         timerReached = true;
+            //     }
             }
         }
         }
@@ -386,7 +404,7 @@ public class QuizManager : MonoBehaviour
 
     public void HandleReturn(){
 
-          StopCoroutine(LoadFinalScoreScene());
+        // StopCoroutine(LoadFinalScoreScene());
          QnA.RemoveAt(CurrentQuestion);
        
         for (int i = Options.Count - 1; i > 0; i--){
@@ -405,17 +423,18 @@ public class QuizManager : MonoBehaviour
 
         
     }
-     IEnumerator LoadFinalScoreScene()
-    {
-          if(!QuizTest){
-            yield return null;
-          }
-          
-           yield return new WaitForSecondsRealtime(2);
-               FinalScoreScene.SetActive(true);
-                FinalScore.text = correctQuestion.ToString() + "/10";
+    //  IEnumerator LoadFinalScoreScene()
+    // {
+
+    //      yield return new WaitWhile(() => QuizTest);
+    //        yield return new WaitForSecondsRealtime(2);
+
+    //        Debug.Log("bug");
+    //            FinalScoreScene.SetActive(true);
+    //             FinalScore.text = correctQuestion.ToString() + "/10";
+                
          
-    }
+    // }
     public void DisableAnswer(){
         for (int i = 0; i < Options.Count; i ++){
             Options[i].GetComponent<Button>().interactable = !Options[i].GetComponent<Button>().interactable;
