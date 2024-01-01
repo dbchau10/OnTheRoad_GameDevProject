@@ -26,7 +26,7 @@ public class AnswerScript : MonoBehaviour
 		if (currentScene.name == "QuizTest") 
 		{
             quizManager.DisableAnswer();
-            ContinueBtn.SetActive(true);
+           
             Debug.Log("Hello");
             if (isCorrect){
                 SetColor(Color.green);
@@ -36,7 +36,10 @@ public class AnswerScript : MonoBehaviour
             }
 
              FindObjectOfType<WarningTimer>().StopWarning();
-             
+
+              if (quizManager.numberQuestion + 1 < 10){  
+              ContinueBtn.SetActive(true);
+              }
         }
         else {
         if (isCorrect){

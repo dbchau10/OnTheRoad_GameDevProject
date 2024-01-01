@@ -36,8 +36,18 @@ public class QuizManager : MonoBehaviour
         return newShuffledList;
     }
 
+    public int numberQuestion = 0;
     private void Start(){
 
+           Debug.Log(QnA.Count);
+           Debug.Log(Options.Count);
+        QnA.Clear();
+         currentScene = SceneManager.GetActiveScene();
+         if (currentScene.name == "QuizTest"){
+            Options.RemoveRange(1,Options.Count-1);
+         }
+       
+        
         var questionsInJson = JsonUtility.FromJson<QuestionAndAnswerList>(jsonFile.text);
 
         foreach(var q in questionsInJson.questions)
@@ -277,7 +287,7 @@ public class QuizManager : MonoBehaviour
         // }
         generateQuestion();
 
-        currentScene = SceneManager.GetActiveScene();
+       
 
         if (currentScene.name == "QuizTest"){
                QuizTimer.GetComponent<WarningTimer>().Warning();
@@ -305,17 +315,19 @@ public class QuizManager : MonoBehaviour
          QnA.RemoveAt(CurrentQuestion);
        
         for (int i = Options.Count - 1; i > 0; i--){
-            Destroy(Options[i].gameObject);
+            Destroy(Options[i]);
              Options.RemoveAt(i);
         }
         Options[0].GetComponent<Image>().color = Color.white;
+
+        if (numberQuestion < 10){
         generateQuestion();
 
          if (currentScene.name == "QuizTest"){
                QuizTimer.GetComponent<WarningTimer>().Warning();
         }
-
-
+        }
+        numberQuestion++;
     }
 
 
@@ -353,8 +365,8 @@ public class QuizManager : MonoBehaviour
     }
 
     void SetAnswers(){
-        var options = QnA[CurrentQuestion].Answers;
-        for (int i= 0; i < options.Length; i++){
+        Debug.Log("ping");
+        for (int i= 0; i < QnA[CurrentQuestion].Answers.Length; i++){
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
         
@@ -371,6 +383,8 @@ public class QuizManager : MonoBehaviour
 
           
             CurrentQuestion = Random.Range(0, QnA.Count);
+
+            if (currentScene.name == "QuizTest"){
             QuestionTxt.text = QnA[CurrentQuestion].Question;
             Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
 
@@ -396,6 +410,13 @@ public class QuizManager : MonoBehaviour
                 newButton.SetActive(true);
                 newButton.transform.SetParent(btnPrefab.transform.parent.transform, false);
                 Options.Add(newButton);
+            }   
+            } else {
+                while (QnA[CurrentQuestion].Answers.Length !=4){
+                      CurrentQuestion = Random.Range(0, QnA.Count);
+                }
+                   QuestionTxt.text = QnA[CurrentQuestion].Question;
+                
             }
 
             SetAnswers();

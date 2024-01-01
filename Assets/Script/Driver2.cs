@@ -38,6 +38,7 @@ public class Driver2 : MonoBehaviour
 
     void Start()
     {
+
         player = transform.GetComponent<Rigidbody2D>();
     }
 

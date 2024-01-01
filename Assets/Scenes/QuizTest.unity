@@ -1221,6 +1221,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 4124687589d7ab045b91e2adfa92e2a2, type: 3}
   ContinueBtn: {fileID: 2095417809}
   QuizTimer: {fileID: 746335075}
+  numberQuestion: 0
 --- !u!4 &1862918075
 Transform:
   m_ObjectHideFlags: 0
