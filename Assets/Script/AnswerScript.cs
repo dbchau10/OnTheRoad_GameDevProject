@@ -24,8 +24,8 @@ public class AnswerScript : MonoBehaviour
 
 		
 
-		// if (currentScene.name == "QuizTest") 
-        if (quizManager.QuizTest)
+		if (currentScene.name == "QuizTest") 
+        // if (quizManager.QuizTest)
 		{
             quizManager.DisableAnswer();
            

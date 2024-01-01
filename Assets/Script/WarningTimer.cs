@@ -53,9 +53,9 @@ public class WarningTimer : MonoBehaviour
         Debug.Log("End");
           gameObject.SetActive(false);
 
-        //   currentScene = SceneManager.GetActiveScene();
-        //   if (currentScene.name == "QuizTest"){
-            if (QuizMarathon.GetComponent<QuizManager>().QuizTest){
+          currentScene = SceneManager.GetActiveScene();
+          if (currentScene.name == "QuizTest"){
+            // if (QuizMarathon.GetComponent<QuizManager>().QuizTest){
             QuizMarathon.GetComponent<QuizManager>().TimeOut();
           }
     }

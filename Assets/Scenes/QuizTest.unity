@@ -683,6 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 1278875934}
   Duration: 10
+  QuizMarathon: {fileID: 0}
 --- !u!114 &746335078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,6 +1229,7 @@ MonoBehaviour:
   quizManager: {fileID: 1862918074}
   uiManager: {fileID: 0}
   ContinueBtn: {fileID: 2095417809}
+  QuizTimer: {fileID: 746335075}
 --- !u!1 &1172798384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,11 +1699,12 @@ MonoBehaviour:
   CurrentQuestion: 0
   QuestionTxt: {fileID: 786264767}
   btnPrefab: {fileID: 974996803}
-  QuizUI: {fileID: 1172798384}
+  QuizUI: {fileID: 0}
   jsonFile: {fileID: 4900000, guid: 4124687589d7ab045b91e2adfa92e2a2, type: 3}
   ContinueBtn: {fileID: 2095417809}
   QuizTimer: {fileID: 746335075}
   FinalScoreScene: {fileID: 1764740444}
+  QuizScene: {fileID: 1172798384}
   FinalScore: {fileID: 2043345329}
   numberQuestion: 0
   correctQuestion: 0
@@ -2134,6 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069ddcce0c39f6240a2074eea46a373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuizMarathon: {fileID: 1862918073}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

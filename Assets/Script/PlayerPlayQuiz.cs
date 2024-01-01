@@ -9,11 +9,11 @@ public class PlayerPlayQuiz : MonoBehaviour
     public GameObject QuizMarathon;
     void OnTriggerEnter2D(Collider2D other)
     {
-        Time.timeScale = 0f;
-        // SceneManager.LoadScene("QuizTest");
+        // Time.timeScale = 0f;
+        SceneManager.LoadScene("QuizTest");
 
-        QuizScene.SetActive(true);
-        QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
+        // QuizScene.SetActive(true);
+        // QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
         Destroy(this);
     }
 }

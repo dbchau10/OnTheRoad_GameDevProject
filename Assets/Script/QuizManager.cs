@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI QuestionTxt;
 
     public GameObject btnPrefab;
-    public bool QuizTest = false;
+    // public bool QuizTest = false;
     Scene currentScene;
 
     public GameObject QuizUI;
@@ -23,7 +23,7 @@ public class QuizManager : MonoBehaviour
 
     public GameObject QuizTimer;
 
-    public bool QuizMarathon;
+    // public bool QuizMarathon;
 
     public GameObject FinalScoreScene;
     public GameObject QuizScene;
@@ -46,14 +46,14 @@ public class QuizManager : MonoBehaviour
     public int correctQuestion = 0;
     private void Start(){
 
-        //    Debug.Log(QnA.Count);
-        //    Debug.Log(Options.Count);
-        // QnA.Clear();
-        //  currentScene = SceneManager.GetActiveScene();
-        //  if (currentScene.name == "QuizTest"){
-        //     if (QuizTest){
-        //     Options.RemoveRange(1,Options.Count-1);
-        //  }
+           Debug.Log(QnA.Count);
+           Debug.Log(Options.Count);
+        QnA.Clear();
+         currentScene = SceneManager.GetActiveScene();
+         if (currentScene.name == "QuizTest"){
+         
+            Options.RemoveRange(1,Options.Count-1);
+         }
        
     //    QnA.Clear();
     //    if (QuizTest){
@@ -298,11 +298,15 @@ public class QuizManager : MonoBehaviour
         //     Debug.Log(QnA[i].Question);
         // }
 
-        if (!QuizMarathon){
-        generateQuestion();
-        }
+        // if (!QuizMarathon){
        
-
+        // }
+       
+         generateQuestion();
+          if (currentScene.name == "QuizTest"){
+               QuizTimer.GetComponent<WarningTimer>().Warning();
+        }
+          Options[0].GetComponent<Image>().color = Color.white;
       
 
     }
@@ -335,8 +339,8 @@ public class QuizManager : MonoBehaviour
         if (numberQuestion < 10){
         generateQuestion();
 
-        //  if (currentScene.name == "QuizTest"){
-        if (QuizTest){
+         if (currentScene.name == "QuizTest"){
+        // if (QuizTest){
                QuizTimer.GetComponent<WarningTimer>().Warning();
         }
         }
@@ -349,14 +353,15 @@ public class QuizManager : MonoBehaviour
         generateQuestion();
           numberQuestion = 0;
         correctQuestion = 0; 
+        Options[0].GetComponent<Image>().color = Color.white;
         QuizTimer.GetComponent<WarningTimer>().Warning();
         checkStart = true;
     }
     void Update(){
-        if (QuizTest){
-            if (!checkStart){
-                FirstStart();
-            }
+        // if (QuizTest){
+        //     if (!checkStart){
+        //         FirstStart();
+        //     }
 
             if (numberQuestion + 1 == 10){
            bool allButtonsUninteractable = true;
@@ -376,7 +381,7 @@ public class QuizManager : MonoBehaviour
              StartCoroutine(LoadFinalScoreScene());
             }
         }
-        }
+        // }
      
 
     }
@@ -384,15 +389,18 @@ public class QuizManager : MonoBehaviour
 
     public void HandleReturn(){
 
-        StopCoroutine(LoadFinalScoreScene());
-        FinalScoreScene.SetActive(false);
-        QuizScene.SetActive(false);
-        QuizTest = false;
-        checkStart = false;
-        // Time.timeScale = 1;
-        // SceneManager.LoadScene(1);
+         Time.timeScale = 1;
+        SceneManager.LoadScene(1);
 
-        
+        // StopCoroutine(LoadFinalScoreScene());
+        FinalScoreScene.SetActive(false);
+        // QuizScene.SetActive(false);
+        // QuizTest = false;
+        // checkStart = false;
+       
+
+        numberQuestion = 0;
+        correctQuestion = 0; 
     }
      IEnumerator LoadFinalScoreScene()
     {
@@ -439,8 +447,8 @@ public class QuizManager : MonoBehaviour
     void SetAnswers(){
        
         for (int i= 0; i < QnA[CurrentQuestion].Answers.Length; i++){
-              Debug.Log(i + "index");
-              Debug.Log(Options.Count + "Count");
+            //   Debug.Log(i + "index");
+            //   Debug.Log(Options.Count + "Count");
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
            
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
@@ -459,8 +467,8 @@ public class QuizManager : MonoBehaviour
           
             CurrentQuestion = Random.Range(0, QnA.Count);
 
-            // if (currentScene.name == "QuizTest"){
-                if (QuizTest){
+            if (currentScene.name == "QuizTest"){
+                // if (QuizTest){
             QuestionTxt.text = QnA[CurrentQuestion].Question;
             Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
 
