@@ -14,7 +14,6 @@ public class PlayerPlayQuiz : MonoBehaviour
 
         QuizScene.SetActive(true);
         QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
-  
         Destroy(this);
     }
 }

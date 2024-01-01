@@ -347,6 +347,8 @@ public class QuizManager : MonoBehaviour
     void FirstStart(){
 
         generateQuestion();
+          numberQuestion = 0;
+        correctQuestion = 0; 
         QuizTimer.GetComponent<WarningTimer>().Warning();
         checkStart = true;
     }
@@ -382,13 +384,12 @@ public class QuizManager : MonoBehaviour
 
     public void HandleReturn(){
 
+        StopCoroutine(LoadFinalScoreScene());
         FinalScoreScene.SetActive(false);
         QuizScene.SetActive(false);
         QuizTest = false;
         checkStart = false;
-        numberQuestion = 0;
-        correctQuestion = 0; 
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
         // SceneManager.LoadScene(1);
 
         
@@ -397,7 +398,7 @@ public class QuizManager : MonoBehaviour
     {
 	
           
-            yield return new WaitForSeconds(2);
+           yield return new WaitForSecondsRealtime(2);
                FinalScoreScene.SetActive(true);
                 FinalScore.text = correctQuestion.ToString() + "/10";
          

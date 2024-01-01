@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 503183743}
         m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
         m_MethodName: HandleReturn
         m_Mode: 1
@@ -3181,7 +3181,7 @@ GameObject:
   - component: {fileID: 193080168}
   - component: {fileID: 193080167}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: Quiz Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23443,6 +23443,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuizCross
       objectReference: {fileID: 0}
+    - target: {fileID: 4721759525523968036, guid: b9354c5de687eab42968bda61038e53a, type: 3}
+      propertyPath: QuizScene
+      value: 
+      objectReference: {fileID: 163226250}
+    - target: {fileID: 4721759525523968036, guid: b9354c5de687eab42968bda61038e53a, type: 3}
+      propertyPath: QuizMarathon
+      value: 
+      objectReference: {fileID: 503183742}
     - target: {fileID: 9012311262361076861, guid: b9354c5de687eab42968bda61038e53a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -99.2
