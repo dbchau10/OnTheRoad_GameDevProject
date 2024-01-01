@@ -11,7 +11,7 @@ public class PlayerMeetTrafficLight : MonoBehaviour
    public GameObject Snackbar;
    public bool checkOpenQuiz=false;
 
-
+    public GameObject QuizTraffic;
  
 
 //    public bool checkSkip = false;
@@ -19,7 +19,7 @@ public class PlayerMeetTrafficLight : MonoBehaviour
    {
         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" && !checkOpenQuiz ){
             if (other.tag == "HeadCar"){
-                FindObjectOfType<QuizManager>().QuizOpen();
+                QuizTraffic.GetComponent<QuizManager>().QuizOpen();
                 checkOpenQuiz = true;
             }
         }

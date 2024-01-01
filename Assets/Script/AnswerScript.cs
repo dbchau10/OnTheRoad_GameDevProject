@@ -11,6 +11,7 @@ public class AnswerScript : MonoBehaviour
     public UiManager uiManager;
 
     public GameObject ContinueBtn;
+    public GameObject QuizTimer;
   
     Scene currentScene;
   void Start()
@@ -23,19 +24,21 @@ public class AnswerScript : MonoBehaviour
 
 		
 
-		if (currentScene.name == "QuizTest") 
+		// if (currentScene.name == "QuizTest") 
+        if (quizManager.QuizTest)
 		{
             quizManager.DisableAnswer();
            
             Debug.Log("Hello");
             if (isCorrect){
                 SetColor(Color.green);
+                quizManager.correctQuestion++;
             }
             else {
                 SetColor(Color.red);
             }
 
-             FindObjectOfType<WarningTimer>().StopWarning();
+             QuizTimer.GetComponent<WarningTimer>().StopWarning();
 
               if (quizManager.numberQuestion + 1 < 10){  
               ContinueBtn.SetActive(true);

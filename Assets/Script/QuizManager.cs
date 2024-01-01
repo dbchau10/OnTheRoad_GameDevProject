@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI QuestionTxt;
 
     public GameObject btnPrefab;
-
+    public bool QuizTest = false;
     Scene currentScene;
 
     public GameObject QuizUI;
@@ -22,6 +22,12 @@ public class QuizManager : MonoBehaviour
     public GameObject ContinueBtn;
 
     public GameObject QuizTimer;
+
+    public bool QuizMarathon;
+
+    public GameObject FinalScoreScene;
+    public GameObject QuizScene;
+    public TextMeshProUGUI FinalScore;
     public static List<QuestionAndAnswer> ShuffleIntList(List<QuestionAndAnswer> list)
     {
         var random = new System.Random();
@@ -37,16 +43,22 @@ public class QuizManager : MonoBehaviour
     }
 
     public int numberQuestion = 0;
+    public int correctQuestion = 0;
     private void Start(){
 
-           Debug.Log(QnA.Count);
-           Debug.Log(Options.Count);
-        QnA.Clear();
-         currentScene = SceneManager.GetActiveScene();
-         if (currentScene.name == "QuizTest"){
-            Options.RemoveRange(1,Options.Count-1);
-         }
+        //    Debug.Log(QnA.Count);
+        //    Debug.Log(Options.Count);
+        // QnA.Clear();
+        //  currentScene = SceneManager.GetActiveScene();
+        //  if (currentScene.name == "QuizTest"){
+        //     if (QuizTest){
+        //     Options.RemoveRange(1,Options.Count-1);
+        //  }
        
+    //    QnA.Clear();
+    //    if (QuizTest){
+    //      Options.RemoveRange(1,Options.Count-1);
+    //    }
         
         var questionsInJson = JsonUtility.FromJson<QuestionAndAnswerList>(jsonFile.text);
 
@@ -285,13 +297,13 @@ public class QuizManager : MonoBehaviour
         //     QnA[i].Question = i.ToString() + ". " + QnA[i].Question;
         //     Debug.Log(QnA[i].Question);
         // }
-        generateQuestion();
 
+        if (!QuizMarathon){
+        generateQuestion();
+        }
        
 
-        if (currentScene.name == "QuizTest"){
-               QuizTimer.GetComponent<WarningTimer>().Warning();
-        }
+      
 
     }
 
@@ -323,14 +335,73 @@ public class QuizManager : MonoBehaviour
         if (numberQuestion < 10){
         generateQuestion();
 
-         if (currentScene.name == "QuizTest"){
+        //  if (currentScene.name == "QuizTest"){
+        if (QuizTest){
                QuizTimer.GetComponent<WarningTimer>().Warning();
         }
         }
         numberQuestion++;
     }
 
+    bool checkStart = false;
+    void FirstStart(){
 
+        generateQuestion();
+        QuizTimer.GetComponent<WarningTimer>().Warning();
+        checkStart = true;
+    }
+    void Update(){
+        if (QuizTest){
+            if (!checkStart){
+                FirstStart();
+            }
+
+            if (numberQuestion + 1 == 10){
+           bool allButtonsUninteractable = true;
+
+            for (int i = 0; i < Options.Count; i++)
+            {
+                Button button = Options[i].GetComponent<Button>();
+
+                if (button.interactable)
+                {
+                    allButtonsUninteractable = false;
+                    break; // No need to check further if one button is interactable
+                }
+            }
+
+            if (allButtonsUninteractable){
+             StartCoroutine(LoadFinalScoreScene());
+            }
+        }
+        }
+     
+
+    }
+
+
+    public void HandleReturn(){
+
+        FinalScoreScene.SetActive(false);
+        QuizScene.SetActive(false);
+        QuizTest = false;
+        checkStart = false;
+        numberQuestion = 0;
+        correctQuestion = 0; 
+        Time.timeScale = 1;
+        // SceneManager.LoadScene(1);
+
+        
+    }
+     IEnumerator LoadFinalScoreScene()
+    {
+	
+          
+            yield return new WaitForSeconds(2);
+               FinalScoreScene.SetActive(true);
+                FinalScore.text = correctQuestion.ToString() + "/10";
+         
+    }
     public void DisableAnswer(){
         for (int i = 0; i < Options.Count; i ++){
             Options[i].GetComponent<Button>().interactable = !Options[i].GetComponent<Button>().interactable;
@@ -365,11 +436,14 @@ public class QuizManager : MonoBehaviour
     }
 
     void SetAnswers(){
-        Debug.Log("ping");
+       
         for (int i= 0; i < QnA[CurrentQuestion].Answers.Length; i++){
+              Debug.Log(i + "index");
+              Debug.Log(Options.Count + "Count");
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
+           
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
-        
+           
             if (QnA[CurrentQuestion].CorrectAnswer == i ){
                 Options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
@@ -384,7 +458,8 @@ public class QuizManager : MonoBehaviour
           
             CurrentQuestion = Random.Range(0, QnA.Count);
 
-            if (currentScene.name == "QuizTest"){
+            // if (currentScene.name == "QuizTest"){
+                if (QuizTest){
             QuestionTxt.text = QnA[CurrentQuestion].Question;
             Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
 

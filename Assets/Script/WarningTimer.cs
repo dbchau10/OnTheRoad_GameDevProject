@@ -14,7 +14,7 @@ public class WarningTimer : MonoBehaviour
     public int Duration = 10;
 
     private int remainingDuration;
-
+    public GameObject QuizMarathon;
 
    
     public void Warning(){
@@ -53,9 +53,10 @@ public class WarningTimer : MonoBehaviour
         Debug.Log("End");
           gameObject.SetActive(false);
 
-          currentScene = SceneManager.GetActiveScene();
-          if (currentScene.name == "QuizTest"){
-            FindObjectOfType<QuizManager>().TimeOut();
+        //   currentScene = SceneManager.GetActiveScene();
+        //   if (currentScene.name == "QuizTest"){
+            if (QuizMarathon.GetComponent<QuizManager>().QuizTest){
+            QuizMarathon.GetComponent<QuizManager>().TimeOut();
           }
     }
 }
