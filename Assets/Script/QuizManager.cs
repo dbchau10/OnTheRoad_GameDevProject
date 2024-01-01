@@ -358,7 +358,7 @@ public class QuizManager : MonoBehaviour
                 FirstStart();
             }
 
-            if (numberQuestion + 1 == 10){
+            if (numberQuestion + 1 == 2){
            bool allButtonsUninteractable = true;
 
             for (int i = 0; i < Options.Count; i++)
@@ -386,6 +386,7 @@ public class QuizManager : MonoBehaviour
 
     public void HandleReturn(){
 
+          StopCoroutine(LoadFinalScoreScene());
          QnA.RemoveAt(CurrentQuestion);
        
         for (int i = Options.Count - 1; i > 0; i--){
@@ -394,7 +395,7 @@ public class QuizManager : MonoBehaviour
         }
         Options[0].GetComponent<Image>().color = Color.white;
         DisableAnswer();
-        // StopCoroutine(LoadFinalScoreScene());
+      
         FinalScoreScene.SetActive(false);
           QuizScene.SetActive(false);
         QuizTest = false;
@@ -406,7 +407,9 @@ public class QuizManager : MonoBehaviour
     }
      IEnumerator LoadFinalScoreScene()
     {
-	
+          if(!QuizTest){
+            yield return null;
+          }
           
            yield return new WaitForSecondsRealtime(2);
                FinalScoreScene.SetActive(true);
