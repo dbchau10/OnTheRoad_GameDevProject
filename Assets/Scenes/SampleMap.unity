@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 844491171}
   Duration: 10
-  QuizMarathon: {fileID: 0}
+  QuizMarathon: {fileID: 503183742}
 --- !u!114 &193080168
 MonoBehaviour:
   m_ObjectHideFlags: 0

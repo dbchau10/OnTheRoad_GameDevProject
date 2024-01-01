@@ -345,10 +345,10 @@ public class QuizManager : MonoBehaviour
 
     bool checkStart = false;
     void FirstStart(){
-
+            numberQuestion = 0;
+            correctQuestion = 0; 
+       
         generateQuestion();
-          numberQuestion = 0;
-        correctQuestion = 0; 
         QuizTimer.GetComponent<WarningTimer>().Warning();
         checkStart = true;
     }
@@ -373,6 +373,8 @@ public class QuizManager : MonoBehaviour
             }
 
             if (allButtonsUninteractable){
+                
+
              StartCoroutine(LoadFinalScoreScene());
             }
         }
@@ -384,12 +386,20 @@ public class QuizManager : MonoBehaviour
 
     public void HandleReturn(){
 
-        StopCoroutine(LoadFinalScoreScene());
+         QnA.RemoveAt(CurrentQuestion);
+       
+        for (int i = Options.Count - 1; i > 0; i--){
+            Destroy(Options[i]);
+             Options.RemoveAt(i);
+        }
+        Options[0].GetComponent<Image>().color = Color.white;
+        DisableAnswer();
+        // StopCoroutine(LoadFinalScoreScene());
         FinalScoreScene.SetActive(false);
-        QuizScene.SetActive(false);
+          QuizScene.SetActive(false);
         QuizTest = false;
         checkStart = false;
-        // Time.timeScale = 1;
+        Time.timeScale = 1;
         // SceneManager.LoadScene(1);
 
         

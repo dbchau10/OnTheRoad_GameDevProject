@@ -40,7 +40,7 @@ public class WarningTimer : MonoBehaviour
                
                 uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remainingDuration);
                 remainingDuration--;
-                yield return new WaitForSeconds(1f);
+                yield  return new WaitForSecondsRealtime(1f);
             
           
         }
