@@ -26,29 +26,28 @@ public class PlayerMeetTrafficLight : MonoBehaviour
        
    }
 
- 
+
     void OnTriggerEnter2D(Collider2D other)
     {
-         if (other.tag == "HeadCar"){
-                WarningTimer.GetComponent<WarningTimer>().StopWarning();
-                var snackbar = Snackbar.GetComponent<MoveModal>();
-                snackbar.gameObject.SetActive(false);
-             
-               
-            }
+        if (other.tag == "HeadCar")
+        {
+            WarningTimer.GetComponent<WarningTimer>().StopWarning();
+            var snackbar = Snackbar.GetComponent<MoveModal>();
+            snackbar.gameObject.SetActive(false);
+        }
     }
-  
-   void OnTriggerExit2D(Collider2D other)
-   {
-        if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" ){
-            if (other.tag == "HeadCar"){
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red")
+        {
+            if (other.tag == "HeadCar")
+            {
                 WarningTimer.GetComponent<WarningTimer>().Warning();
                 var snackbar = Snackbar.GetComponent<MoveModal>();
                 snackbar.content = "Bạn đang vượt đèn đỏ!";
                 snackbar.gameObject.SetActive(true);
-             
-               
             }
         }
-   }
+    }
 }
