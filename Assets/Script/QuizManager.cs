@@ -347,7 +347,6 @@ public class QuizManager : MonoBehaviour
         if (numberQuestion < 10){
         generateQuestion();
 
-        //  if (currentScene.name == "QuizTest"){
         if (QuizTest){
                QuizTimer.GetComponent<WarningTimer>().Warning();
         }
@@ -542,6 +541,25 @@ public class QuizManager : MonoBehaviour
                 
             }
 
+            GridLayoutGroup listAnswerGridLayoutGroup = Options[0].transform.parent.GetComponent<GridLayoutGroup>();
+            if (QnA[CurrentQuestion].Answers.Length >= 2)
+            {
+                float newSpacingY;
+                if (AllButtonsHeightLessThan80() == true)
+                {
+                    newSpacingY = 30f;
+                }
+                else
+                {
+                    newSpacingY = 20f + ( GetMaxButtonHeight() / 2.5f );
+                }
+                 
+                if(listAnswerGridLayoutGroup != null)
+                {
+                    listAnswerGridLayoutGroup.spacing = new Vector2(listAnswerGridLayoutGroup.spacing.x, newSpacingY);
+                }    
+            }    
+
             SetAnswers();
         }
     }
@@ -558,5 +576,54 @@ public class QuizManager : MonoBehaviour
         // Set button size based on preferred width and height
         rectTransform.sizeDelta = new Vector2(preferredWidth + paddingX, preferredHeight + paddingY);
     }
+
+    float GetMaxButtonHeight()
+    {
+        float maxHeight = 0f;
+
+        foreach (GameObject button in Options)
+        {
+            RectTransform rectTransform = button.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                float buttonHeight = rectTransform.rect.height;
+                if (buttonHeight >= 150f && buttonHeight <= 190f)
+                {
+                    return buttonHeight;
+                }
+                else if(buttonHeight > 190f)
+                {
+                    return buttonHeight + 50f;
+                }
+                else if (buttonHeight > maxHeight)
+                {
+                    maxHeight = buttonHeight;
+                }
+            }
+        }
+
+        return maxHeight;
+    }
+
+    bool AllButtonsHeightLessThan80()
+    {
+        foreach (GameObject button in Options)
+        {
+            RectTransform rectTransform = button.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                float buttonHeight = rectTransform.rect.height;
+                if (buttonHeight >= 80f)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+
+
 
 }

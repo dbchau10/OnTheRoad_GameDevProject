@@ -19,7 +19,7 @@ public class Driver2 : MonoBehaviour
     [SerializeField] Rigidbody2D player;
     [SerializeField] GameObject back;
 
-    public TextMeshProUGUI CoinCounts;
+    [SerializeField] TextMeshProUGUI CoinCounts;
 
     public int coins;
     bool isMoving = false;
