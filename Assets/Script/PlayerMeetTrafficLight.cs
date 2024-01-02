@@ -11,11 +11,16 @@ public class PlayerMeetTrafficLight : MonoBehaviour
    public GameObject Snackbar;
    public bool checkOpenQuiz=false;
 
+   AudioManager audioManager;
 
- 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
-//    public bool checkSkip = false;
-   void OnTriggerStay2D(Collider2D other)
+
+    //    public bool checkSkip = false;
+    void OnTriggerStay2D(Collider2D other)
    {
         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" && !checkOpenQuiz ){
             if (other.tag == "HeadCar"){
@@ -42,6 +47,7 @@ public class PlayerMeetTrafficLight : MonoBehaviour
    {
         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" ){
             if (other.tag == "HeadCar"){
+                audioManager.PlaySFX(audioManager.alert);
                 WarningTimer.GetComponent<WarningTimer>().Warning();
                 var snackbar = Snackbar.GetComponent<MoveModal>();
                 snackbar.content = "Bạn đang vượt đèn đỏ!";
