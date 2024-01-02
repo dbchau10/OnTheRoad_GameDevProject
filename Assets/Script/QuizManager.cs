@@ -44,6 +44,8 @@ public class QuizManager : MonoBehaviour
 
     public int numberQuestion = 0;
     public int correctQuestion = 0;
+
+    public GameObject Player;
     private void Start(){
 
         //    Debug.Log(QnA.Count);
@@ -364,7 +366,7 @@ public class QuizManager : MonoBehaviour
                 FirstStart();
             }
 
-            if (numberQuestion + 1 == 10){
+            if (numberQuestion + 1 == 2){
            bool allButtonsUninteractable = true;
 
             for (int i = 0; i < Options.Count; i++)
@@ -413,9 +415,10 @@ public class QuizManager : MonoBehaviour
         }
         Options[0].GetComponent<Image>().color = Color.white;
         DisableAnswer();
-      
+       
         FinalScoreScene.SetActive(false);
           QuizScene.SetActive(false);
+           Player.SetActive(true);
         QuizTest = false;
         checkStart = false;
         Time.timeScale = 1;

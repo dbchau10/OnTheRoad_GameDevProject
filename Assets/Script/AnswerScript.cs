@@ -40,7 +40,7 @@ public class AnswerScript : MonoBehaviour
 
              QuizTimer.GetComponent<WarningTimer>().StopWarning();
 
-              if (quizManager.numberQuestion + 1 < 10){  
+              if (quizManager.numberQuestion + 1 < 2){  
               ContinueBtn.SetActive(true);
               }
         }

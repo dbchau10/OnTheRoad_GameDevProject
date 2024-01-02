@@ -10,15 +10,18 @@ public class ScaleTween : MonoBehaviour
    public void OnEnable()
    {
         // transform.localScale = new Vector3(0,0,0);
-        LeanTween.scale(gameObject, new Vector3(1,1,1), 0.5f).setDelay(2f).setOnComplete(OnClose);
+        LeanTween.scale(gameObject, new Vector3(1,1,1), 0.5f).setDelay(0.5f).setOnComplete(OnClose);
    }
 
     public void OnClose(){
         LeanTween.scale(gameObject, new Vector3(0,0,0), 0.5f ).setOnComplete(DestroyMe);
     }
    void DestroyMe(){
-    Destroy(gameObject);
+    
        QuizScene.SetActive(true);
          QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
+        // Destroy(gameObject);
+
+        gameObject.SetActive(false);
    }
 }

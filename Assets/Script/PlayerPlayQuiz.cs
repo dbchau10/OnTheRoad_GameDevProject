@@ -7,11 +7,14 @@ public class PlayerPlayQuiz : MonoBehaviour
 {
 
     public GameObject ReviewTimeModal;
+    public GameObject Player;
 
     bool timerReached = false;
     float timer = 0;
     void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
+
+        Player.SetActive(false);
         ReviewTimeModal.SetActive(true);
         
                  
