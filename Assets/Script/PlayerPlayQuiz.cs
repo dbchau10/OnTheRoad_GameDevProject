@@ -5,15 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPlayQuiz : MonoBehaviour
 {
-    public GameObject QuizScene;
-    public GameObject QuizMarathon;
+
+    public GameObject ReviewTimeModal;
+
+    bool timerReached = false;
+    float timer = 0;
     void OnTriggerEnter2D(Collider2D other)
     {
-        Time.timeScale = 0f;
-        // SceneManager.LoadScene("QuizTest");
+        ReviewTimeModal.SetActive(true);
+        
+                 
+                    Destroy(this); 
+        
+        //  if (!timerReached)
+        //     timer += Time.unscaledDeltaTime;
 
-        QuizScene.SetActive(true);
-        QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
-        Destroy(this);
+        // if (!timerReached && timer > 2)
+        // {
+        //       Debug.Log("Done waiting");
+                    
+        //               Time.timeScale = 0f;
+        
+
+        //             QuizScene.SetActive(true);
+        //             QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
+        //             Destroy(this); 
+        //             timerReached = true;
+        // }
+
+      
     }
 }
