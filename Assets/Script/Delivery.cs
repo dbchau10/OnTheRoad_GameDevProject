@@ -93,12 +93,14 @@ public class Delivery : MonoBehaviour
                 {
                     isPennalize = isFlicking = false;
                     spriteRenderer.color = noPackageColor;
+                    road.closeWarning();
                 }
                 else if (body.velocity.x > 0)
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
                     parent.penalize(-10);
+                    road.showWarning();
                 }
             }
             else if (r.x > 0)
@@ -107,12 +109,14 @@ public class Delivery : MonoBehaviour
                 {
                     isPennalize = isFlicking = false;
                     spriteRenderer.color = noPackageColor;
+                    road.closeWarning();
                 }
                 else if (body.velocity.x < 0)
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
                     parent.penalize(-10);
+                    road.showWarning();
                 }
             }
             if (r.y < 0)
@@ -121,12 +125,14 @@ public class Delivery : MonoBehaviour
                 {
                     isPennalize = isFlicking = false;
                     spriteRenderer.color = noPackageColor;
+                    road.closeWarning();
                 }
                 else if (body.velocity.y > 0)
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
                     parent.penalize(-10);
+                    road.showWarning();
                 }
             }
             else if (r.y > 0)
@@ -135,12 +141,15 @@ public class Delivery : MonoBehaviour
                 {
                     isPennalize = isFlicking = false;
                     spriteRenderer.color = noPackageColor;
+                    road.closeWarning();
                 }
                 else if (body.velocity.y < 0)
                 {
                     isPennalize = true;
                     Debug.Log("One way road");
                     parent.penalize(-10);
+                    road.showWarning();
+                    
                 }
             }
 
@@ -156,12 +165,14 @@ public class Delivery : MonoBehaviour
             {
                 isPennalize = false;
                 spriteRenderer.color = noPackageColor;
+                road.closeWarning();
             }
             else
             {
                 Debug.Log("Exceed current speed limit: " + road.getSpeed());
                 parent.penalize(-4);
                 isPennalize = true;
+                road.showWarning();
             }
 
             if (isPennalize && !isFlicking)
