@@ -8681,6 +8681,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1064815533}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneManagerScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MainMenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278835117958419243, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4489985574763517446, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -22309,6 +22341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064815532}
   - component: {fileID: 1064815531}
+  - component: {fileID: 1064815533}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -22346,6 +22379,18 @@ Transform:
   - {fileID: 21602072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064815533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064815530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116affdaf96b4ed4dbb6a1ef5b0b7444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1069525077
 GameObject:
   m_ObjectHideFlags: 0
