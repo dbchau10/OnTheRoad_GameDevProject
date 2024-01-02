@@ -376,7 +376,7 @@ public class QuizManager : MonoBehaviour
                 FirstStart();
             }
 
-            if (numberQuestion + 1 == 2){
+            if (numberQuestion + 1 == 10){
            bool allButtonsUninteractable = true;
 
             for (int i = 0; i < Options.Count; i++)
