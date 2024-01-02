@@ -7476,6 +7476,7 @@ MonoBehaviour:
   FinalScore: {fileID: 743707139}
   numberQuestion: 0
   correctQuestion: 0
+  finalScore: 0
   Player: {fileID: 1962740921}
 --- !u!4 &503183744
 Transform:
@@ -27477,7 +27478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 1626252184}
   Duration: 10
-  QuizMarathon: {fileID: 0}
+  QuizMarathon: {fileID: 503183742}
 --- !u!1 &1316130754
 GameObject:
   m_ObjectHideFlags: 0
@@ -38674,6 +38675,7 @@ MonoBehaviour:
   FinalScore: {fileID: 0}
   numberQuestion: 0
   correctQuestion: 0
+  finalScore: 0
   Player: {fileID: 0}
 --- !u!4 &2054652617
 Transform:
