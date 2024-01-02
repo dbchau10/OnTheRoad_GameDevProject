@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleMap.unity
     guid: aee0dc2b8d8290b4388b0206e7a3b0ad
   - enabled: 1
-    path: Assets/Scenes/QuizTest.unity
-    guid: 1f611b06471ae954aa45655259100a7a
+    path: Assets/Scenes/SampleMapLevel2.unity
+    guid: 3318f4ea211077f448f633162e38fe90
+  - enabled: 1
+    path: Assets/Scenes/SampleMapLevel3.unity
+    guid: 490dd54355b7eff409fb03b8d6ce42c0
   m_configObjects: {}
