@@ -379,21 +379,21 @@ public class QuizManager : MonoBehaviour
             }
 
             if (allButtonsUninteractable){
-                 FinalScoreScene.SetActive(true);
-                FinalScore.text = correctQuestion.ToString() + "/10";
+                //  FinalScoreScene.SetActive(true);
+                // FinalScore.text = correctQuestion.ToString() + "/10";
 
             //  StartCoroutine(LoadFinalScoreScene());
-            // if (!timerReached)
-            // timer += Time.realtimeSinceStartup;
+            if (!timerReached)
+            timer += Time.unscaledDeltaTime;
 
-            //     if (!timerReached && timer > 10)
-            //     {
-            //         Debug.Log("Done waiting");
+                if (!timerReached && timer > 2)
+                {
+                    Debug.Log("Done waiting");
                     
-            //          FinalScoreScene.SetActive(true);
-            //         FinalScore.text = correctQuestion.ToString() + "/10";
-            //         timerReached = true;
-            //     }
+                     FinalScoreScene.SetActive(true);
+                    FinalScore.text = correctQuestion.ToString() + "/10";
+                    timerReached = true;
+                }
             }
         }
         }
