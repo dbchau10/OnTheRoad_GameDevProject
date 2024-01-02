@@ -13,6 +13,7 @@ TagManager:
   - BackCar
   - Coin
   - Pointer
+  - Audio
   layers:
   - Default
   - TransparentFX
