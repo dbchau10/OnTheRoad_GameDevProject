@@ -45,7 +45,17 @@ public class QuizManager : MonoBehaviour
     public int numberQuestion = 0;
     public int correctQuestion = 0;
 
+    public int finalScore = 0;
+
     public GameObject Player;
+
+     private UiManager uiManager;
+
+    private void Awake()
+    {
+        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+    }
+
     private void Start(){
 
         //    Debug.Log(QnA.Count);
@@ -415,6 +425,8 @@ public class QuizManager : MonoBehaviour
         }
         Options[0].GetComponent<Image>().color = Color.white;
         DisableAnswer();
+
+        uiManager.changeScore(finalScore);
        
         FinalScoreScene.SetActive(false);
           QuizScene.SetActive(false);

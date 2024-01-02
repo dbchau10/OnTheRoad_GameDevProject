@@ -9,16 +9,22 @@ public class PlayerPlayQuiz : MonoBehaviour
     public GameObject ReviewTimeModal;
     public GameObject Player;
 
+    public List<GameObject> QuizCollider;
+
     bool timerReached = false;
     float timer = 0;
     void OnTriggerEnter2D(Collider2D other)
     {   
-
+          if (other.tag == "HeadCar"){
         Player.SetActive(false);
         ReviewTimeModal.SetActive(true);
         
-                 
+                    for (int i = QuizCollider.Count-1; i >= 0; i --){
+                        Destroy(QuizCollider[i]);
+                        QuizCollider.RemoveAt(i);
+                    }
                     Destroy(this); 
+          }
         
         //  if (!timerReached)
         //     timer += Time.unscaledDeltaTime;

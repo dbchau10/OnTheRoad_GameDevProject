@@ -33,6 +33,7 @@ public class AnswerScript : MonoBehaviour
             if (isCorrect){
                 SetColor(Color.green);
                 quizManager.correctQuestion++;
+                quizManager.finalScore++;
             }
             else {
                 SetColor(Color.red);
