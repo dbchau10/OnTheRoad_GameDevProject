@@ -11,7 +11,7 @@ public class MoveModal : MonoBehaviour
     public float speed = 2000.0f;
     private RectTransform rectTransform;
     private bool moveDown = false;
-    private float targetY = 450f;
+    private float targetY = 448.7651f;
 
     void Start()
     {
