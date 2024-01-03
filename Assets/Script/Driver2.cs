@@ -97,7 +97,6 @@ public class Driver2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
-            Debug.Log(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z));
             if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z)) > 20f)
             {
                 if (player.velocity.magnitude < 1f)

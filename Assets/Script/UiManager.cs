@@ -87,9 +87,7 @@ public class UiManager : MonoBehaviour
         }
         else {
             Timeleft = Time.time - startTime;
-            Debug.Log("left = " + Timeleft + " time: " + Time.time + " start: " + startTime);
         restSeconds = CountDownSeconds - (Timeleft);
-            Debug.Log("rest = " + restSeconds);
         roundedRestSeconds = Mathf.CeilToInt(restSeconds);
         displaySeconds = roundedRestSeconds % 60;
         displayMinutes = (roundedRestSeconds / 60) % 60;
