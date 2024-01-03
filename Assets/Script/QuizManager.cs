@@ -299,8 +299,10 @@ public class QuizManager : MonoBehaviour
     }
 
     void SetAnswers(){
-        var options = QnA[CurrentQuestion].Answers;
-        for (int i= 0; i < options.Length; i++){
+       
+        for (int i= 0; i < QnA[CurrentQuestion].Answers.Length; i++){
+              //Debug.Log(i + "index");
+              //Debug.Log(Options.Count + "Count");
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
         
