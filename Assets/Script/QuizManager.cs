@@ -490,8 +490,6 @@ public class QuizManager : MonoBehaviour
     void SetAnswers(){
        
         for (int i= 0; i < QnA[CurrentQuestion].Answers.Length; i++){
-              //Debug.Log(i + "index");
-              //Debug.Log(Options.Count + "Count");
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
            
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
@@ -505,9 +503,7 @@ public class QuizManager : MonoBehaviour
     void generateQuestion()
     {
         if (QnA.Count > 0)
-        {
-
-          
+        { 
             CurrentQuestion = Random.Range(0, QnA.Count);
 
             // if (currentScene.name == "QuizTest"){
@@ -547,23 +543,20 @@ public class QuizManager : MonoBehaviour
             }
 
             GridLayoutGroup listAnswerGridLayoutGroup = Options[0].transform.parent.GetComponent<GridLayoutGroup>();
-            if (QnA[CurrentQuestion].Answers.Length >= 2)
+            float newSpacingY;
+            if (AllButtonsHeightLessThan119() == true)
             {
-                float newSpacingY;
-                if (AllButtonsHeightLessThan80() == true)
-                {
-                    newSpacingY = 30f;
-                }
-                else
-                {
-                    newSpacingY = 25f + ( GetMaxButtonHeight() / 2.2f );
-                }
-                 
-                if(listAnswerGridLayoutGroup != null)
-                {
-                    listAnswerGridLayoutGroup.spacing = new Vector2(listAnswerGridLayoutGroup.spacing.x, newSpacingY);
-                }    
-            }    
+                newSpacingY = 30f;
+            }
+            else
+            {
+                newSpacingY = 25f + ( GetMaxButtonHeight() / 2.2f );
+            }
+
+            if (listAnswerGridLayoutGroup != null)
+            {
+                listAnswerGridLayoutGroup.spacing = new Vector2(listAnswerGridLayoutGroup.spacing.x, newSpacingY);
+            }
 
             SetAnswers();
         }
@@ -600,6 +593,7 @@ public class QuizManager : MonoBehaviour
                 {
                     return buttonHeight + 50f;
                 }
+                
                 else if (buttonHeight > maxHeight)
                 {
                     maxHeight = buttonHeight;
@@ -610,7 +604,7 @@ public class QuizManager : MonoBehaviour
         return maxHeight;
     }
 
-    bool AllButtonsHeightLessThan80()
+    bool AllButtonsHeightLessThan119()
     {
         foreach (GameObject button in Options)
         {
@@ -618,7 +612,7 @@ public class QuizManager : MonoBehaviour
             if (rectTransform != null)
             {
                 float buttonHeight = rectTransform.rect.height;
-                if (buttonHeight >= 80f)
+                if (buttonHeight > 119f)
                 {
                     return false;
                 }
