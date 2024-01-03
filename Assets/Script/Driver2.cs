@@ -54,23 +54,23 @@ public class Driver2 : MonoBehaviour
         //Debug.Log(Quaternion.Angle(transform.rotation, back.transform.rotation));
 
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             psBrake.Play();
         }
 
-        if ((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)) && isMoving)
+        if ((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S)) && isMoving)
         {
             isMoving = false;
             ps.Stop();
             //Debug.Log("Stop fuming");
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
         {
             player.angularVelocity = 0;
             steerAmount = 0;
         }
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) && !isMoving) isMoving = true;
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)) && !isMoving) isMoving = true;
         if (isMoving)
         {
             float mSpeed = moveSpeed;
@@ -89,13 +89,13 @@ public class Driver2 : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
         {
             //Debug.Log("prep" + prevRotation);
             prevRotation = transform.rotation;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             Debug.Log(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z));
             if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z)) > 20f)
