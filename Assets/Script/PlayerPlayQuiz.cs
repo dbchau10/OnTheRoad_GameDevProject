@@ -18,7 +18,7 @@ public class PlayerPlayQuiz : MonoBehaviour
           if (other.tag == "HeadCar"){
         Player.SetActive(false);
         ReviewTimeModal.SetActive(true);
-        
+         
                     for (int i = QuizCollider.Count-1; i >= 0; i --){
                         Destroy(QuizCollider[i]);
                         QuizCollider.RemoveAt(i);
