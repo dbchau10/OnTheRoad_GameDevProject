@@ -24,6 +24,7 @@ public class FollowCamera : MonoBehaviour
           transform.position = new Vector3(Mathf.Clamp(targetPosition.x,-27.4f,356f), Mathf.Clamp(targetPosition.y,-0.5f,158f), targetPosition.z);
             }
             else if (currentScene.name == "SampleMapLevel2"){
+                 transform.position = new Vector3(Mathf.Clamp(targetPosition.x,-22.9f,388f), Mathf.Clamp(targetPosition.y,-90f,217f), targetPosition.z);
                 
             }
             else if (currentScene.name == "SampleMapLevel3"){
