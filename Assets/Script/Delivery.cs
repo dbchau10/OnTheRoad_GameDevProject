@@ -77,11 +77,31 @@ public class Delivery : MonoBehaviour
             spriteRenderer.color = noPackageColor;
             collision.gameObject.GetComponent<OneWayRoad>().closeWarning();
         }
-        if(collision.tag == "SpeedLimitedRoad")
+        else if(collision.tag == "SpeedLimitedRoad")
         {
             isPennalize = false;
             spriteRenderer.color = noPackageColor;
             collision.gameObject.GetComponent<SpeedLimitedRoad>().closeWarning();
+        }
+        else if (collision.tag == "Level3")
+        {
+            isPennalize = false;
+            spriteRenderer.color = noPackageColor;
+            collision.gameObject.GetComponent<ColliderLevel3>().closeWarning();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Level3")
+        {
+            var road = collision.transform.GetComponent<ColliderLevel3>();
+            isPennalize = true;
+            // Debug.Log("One way road");
+            // parent.penalize(-1);
+            road.showWarning();
+            if (isPennalize && !isFlicking)
+                StartCoroutine(startFlicking());
         }
     }
 
@@ -93,7 +113,7 @@ public class Delivery : MonoBehaviour
             parent.addBonusTime(8);
         }
 
-        if (other.tag == "OneWayRoad")
+        else if (other.tag == "OneWayRoad")
         {
             OneWayRoad road = other.transform.GetComponent<OneWayRoad>();
 
@@ -173,7 +193,7 @@ public class Delivery : MonoBehaviour
                 StartCoroutine(startFlicking());
         } 
 
-        if(other.tag == "SpeedLimitedRoad")
+        else if(other.tag == "SpeedLimitedRoad")
         {
             SpeedLimitedRoad road = other.gameObject.GetComponent<SpeedLimitedRoad>();
             if(road.getSpeed() < Mathf.Abs(body.velocity.x) || road.getSpeed() < Mathf.Abs(body.velocity.y))
@@ -194,8 +214,6 @@ public class Delivery : MonoBehaviour
                 StartCoroutine(startFlicking());
 
         }
-
-        
     }
 
     IEnumerator CountDownToDisapear(StudentController sc)

@@ -91,7 +91,7 @@ public class Driver2 : MonoBehaviour
             float mSpeed = moveSpeed;
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
-                backLight.SetActive(true);
+                if (backLight) backLight.SetActive(true);
                 if (player.velocity.magnitude >= 1f) mSpeed = moveSpeed / 100f;
                 else mSpeed = 0;
             }
@@ -105,8 +105,9 @@ public class Driver2 : MonoBehaviour
             }
         }
 
-        frontLight.SetActive(turnOnLight);
-        backLight.SetActive(turnOnLight);
+        if (frontLight) frontLight.SetActive(turnOnLight);
+        if (backLight)
+            backLight .SetActive(turnOnLight);
 
         if (Input.GetKeyDown(KeyCode.Space) && !turnOnLight) {
             turnOnLight = true;
@@ -120,7 +121,7 @@ public class Driver2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
-            Debug.Log(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z));
+            //Debug.Log(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z));
             if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, prevRotation.eulerAngles.z)) > 20f)
             {
                 if (player.velocity.magnitude < 1f)
