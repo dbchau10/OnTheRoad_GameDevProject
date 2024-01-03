@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -31,7 +32,7 @@ public class Delivery : MonoBehaviour
 
     IEnumerator startFlicking()
     {
-        Debug.Log("flickering");
+        //Debug.Log("flickering");
         if (!isFlicking)
         {
             isFlicking = true;
@@ -59,21 +60,35 @@ public class Delivery : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Ouch!");
+        if (other.collider.tag == "SchoolGirl")
+        {
+            StudentController sc = other.gameObject.GetComponent<StudentController>();
+            sc.showWarning();
+            parent.penalize(-1);
+            StartCoroutine(CountDownToDisapear(sc));
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "OneWayRoad" || collision.tag == "SpeedLimitedRoad")
+        if (collision.tag == "OneWayRoad" )
         {
             isPennalize = false;
             spriteRenderer.color = noPackageColor;
+            collision.gameObject.GetComponent<OneWayRoad>().closeWarning();
+        }
+        if(collision.tag == "SpeedLimitedRoad")
+        {
+            isPennalize = false;
+            spriteRenderer.color = noPackageColor;
+            collision.gameObject.GetComponent<SpeedLimitedRoad>().closeWarning();
         }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Package") {
-            Debug.Log("Package Picked Up!");
+           //  Debug.Log("Package Picked Up!");
             Destroy(other.gameObject, deleteTime);
             parent.addBonusTime(8);
         }
@@ -98,7 +113,7 @@ public class Delivery : MonoBehaviour
                 else if (body.velocity.x > 0)
                 {
                     isPennalize = true;
-                    Debug.Log("One way road");
+                    // Debug.Log("One way road");
                     parent.penalize(-10);
                     road.showWarning();
                 }
@@ -114,7 +129,7 @@ public class Delivery : MonoBehaviour
                 else if (body.velocity.x < 0)
                 {
                     isPennalize = true;
-                    Debug.Log("One way road");
+                    // Debug.Log("One way road");
                     parent.penalize(-10);
                     road.showWarning();
                 }
@@ -130,7 +145,7 @@ public class Delivery : MonoBehaviour
                 else if (body.velocity.y > 0)
                 {
                     isPennalize = true;
-                    Debug.Log("One way road");
+                    // Debug.Log("One way road");
                     parent.penalize(-10);
                     road.showWarning();
                 }
@@ -146,7 +161,7 @@ public class Delivery : MonoBehaviour
                 else if (body.velocity.y < 0)
                 {
                     isPennalize = true;
-                    Debug.Log("One way road");
+                    // Debug.Log("One way road");
                     parent.penalize(-10);
                     road.showWarning();
                     
@@ -169,7 +184,7 @@ public class Delivery : MonoBehaviour
             }
             else
             {
-                Debug.Log("Exceed current speed limit: " + road.getSpeed());
+                // Debug.Log("Exceed current speed limit: " + road.getSpeed());
                 parent.penalize(-4);
                 isPennalize = true;
                 road.showWarning();
@@ -179,5 +194,18 @@ public class Delivery : MonoBehaviour
                 StartCoroutine(startFlicking());
 
         }
+
+        
+    }
+
+    IEnumerator CountDownToDisapear(StudentController sc)
+    {
+        var penaltyTime = 6.0f;
+        while(penaltyTime > 0)
+        {
+            penaltyTime -= Time.deltaTime;
+            yield return new WaitForSeconds(6.0f);
+        }
+        sc.closeWarning();
     }
 }

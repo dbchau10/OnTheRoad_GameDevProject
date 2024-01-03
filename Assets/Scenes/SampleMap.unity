@@ -135,10 +135,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SchoolGirl_0
       objectReference: {fileID: 0}
+    - target: {fileID: 911062933060341356, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: m_TagString
+      value: SchoolGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: Snackbar
+      value: 
+      objectReference: {fileID: 1693260482}
     - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: TrafficLight
       value: 
       objectReference: {fileID: 550588025}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: WarningTimer
+      value: 
+      objectReference: {fileID: 1314835758}
     - target: {fileID: 8655778551341673711, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.2
@@ -6090,6 +6102,10 @@ PrefabInstance:
       propertyPath: WarningTimer
       value: 
       objectReference: {fileID: 1314835758}
+    - target: {fileID: 750162961756087161, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
+      propertyPath: limitedSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2599422431252517701, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
       propertyPath: m_Name
       value: SpeedLimtedRoad (3)
@@ -24524,6 +24540,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SchoolGirl_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 911062933060341356, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: m_TagString
+      value: SchoolGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: Snackbar
+      value: 
+      objectReference: {fileID: 1693260482}
     - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: vertical
       value: 1
@@ -27656,7 +27680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac327e1c62b865429e4ba201f1e7d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitedSpeed: 30
+  limitedSpeed: 50
   WarningTimer: {fileID: 1314835758}
   Snackbar: {fileID: 1693260482}
 --- !u!212 &1263428217
@@ -31515,7 +31539,7 @@ PrefabInstance:
       objectReference: {fileID: 1314835758}
     - target: {fileID: 750162961756087161, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
       propertyPath: limitedSpeed
-      value: 30
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 2599422431252517701, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
       propertyPath: m_Name
@@ -37283,6 +37307,10 @@ PrefabInstance:
       propertyPath: WarningTimer
       value: 
       objectReference: {fileID: 1314835758}
+    - target: {fileID: 750162961756087161, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
+      propertyPath: limitedSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2599422431252517701, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
       propertyPath: m_Name
       value: SpeedLimtedRoad (2)
@@ -37372,6 +37400,10 @@ PrefabInstance:
       propertyPath: WarningTimer
       value: 
       objectReference: {fileID: 1314835758}
+    - target: {fileID: 750162961756087161, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
+      propertyPath: limitedSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2599422431252517701, guid: e6b222e09d6aa8a468a98e3ee77420d3, type: 3}
       propertyPath: m_Name
       value: SpeedLimtedRoad (1)
@@ -40136,6 +40168,10 @@ PrefabInstance:
     - target: {fileID: 911062933060341356, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_Name
       value: SchoolGirl_0 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 911062933060341356, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: m_TagString
+      value: SchoolGirl
       objectReference: {fileID: 0}
     - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: direction

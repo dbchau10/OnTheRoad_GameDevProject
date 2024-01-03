@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StudentController : MonoBehaviour
 {
-     public float speed = 1.5f;
+    public float speed = 1.5f;
     public bool vertical;
     Rigidbody2D rigidbody2D_;
     public float changeTime = 3f;
@@ -13,7 +13,10 @@ public class StudentController : MonoBehaviour
 
     public GameObject TrafficLight;
     Animator animator;
-  
+
+    public GameObject WarningTimer;
+    public GameObject Snackbar;
+
 
     void Awake() {
          rigidbody2D_ = GetComponent<Rigidbody2D>();
@@ -26,6 +29,23 @@ public class StudentController : MonoBehaviour
         // healthBar.UpdateHealthBar(currentHealth, maxHealth);
        
     }
+
+    public void showWarning()
+    {
+        WarningTimer.GetComponent<WarningTimer>().Warning();
+        var snackbar = Snackbar.GetComponent<MoveModal>();
+        snackbar.content = "Bạn mới tông người đi đường!!! Bạn bị phạt điểm";
+        snackbar.gameObject.SetActive(true);
+    }
+
+    public void closeWarning()
+    {
+        WarningTimer.GetComponent<WarningTimer>().StopWarning();
+        var snackbar = Snackbar.GetComponent<MoveModal>();
+        snackbar.gameObject.SetActive(false);
+    }
+
+
 
     void Update() {
 

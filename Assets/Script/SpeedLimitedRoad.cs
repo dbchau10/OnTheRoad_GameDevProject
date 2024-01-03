@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpeedLimitedRoad : MonoBehaviour
 {
-    [SerializeField] float limitedSpeed = 30f;
+    [SerializeField] float limitedSpeed = 51f;
 
     public GameObject WarningTimer;
     public GameObject Snackbar;
