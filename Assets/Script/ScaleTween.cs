@@ -4,33 +4,26 @@ using UnityEngine;
 
 public class ScaleTween : MonoBehaviour
 {
-   
     public GameObject QuizScene;
     public GameObject QuizMarathon;
 
-    float timer;
-    bool timerReached = false;
-   public void OnEnable()
-   {
-         LeanTween.scale(gameObject, new Vector3(1,1,1), 0.5f).setDelay(1f).setOnComplete(OnClose);
-        //  if (!timerReached)
-        //     timer += Time.unscaledDeltaTime;
-
-        // if (!timerReached && timer > 2)
-        // {
-        //     DestroyMe();
-
-        //     timerReached=true;
-        // }
-   }
-
-    public void OnClose(){
-        LeanTween.scale(gameObject, new Vector3(0,0,0), 0.5f ).setOnComplete(DestroyMe);
+    public void OnEnable()
+    {
+        LeanTween.reset();
+        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 0.5f).setDelay(1f).setOnComplete(
+            delegate () { 
+                LeanTween.scale(gameObject, new Vector3(0, 0, 0), 0.5f).setOnComplete(
+                    delegate() { 
+                        DestroyMe(); 
+                    }); });
     }
-   void DestroyMe(){
-       QuizScene.SetActive(true);
-       QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
-        
+
+
+    void DestroyMe()
+    {
+        QuizScene.SetActive(true);
+        QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
+
         gameObject.SetActive(false);
-   }
+    }
 }

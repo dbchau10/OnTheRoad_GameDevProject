@@ -13,81 +13,85 @@ public class AnswerScript : MonoBehaviour
 
     public GameObject ContinueBtn;
     public GameObject QuizTimer;
-  
+
     Scene currentScene;
-  void Start()
-  {
-         currentScene = SceneManager.GetActiveScene ();
-  }
+    void Start()
+    {
+        currentScene = SceneManager.GetActiveScene();
+    }
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    public void Answer(){
-
-      
-
-		
-
-		// if (currentScene.name == "QuizTest") 
+    public void Answer()
+    {
         if (quizManager.QuizTest)
-		{
+        {
             quizManager.DisableAnswer();
-           
-            Debug.Log("Hello");
-            if (isCorrect){
+
+            if (isCorrect)
+            {
                 SetColor(Color.green);
                 quizManager.correctQuestion++;
                 quizManager.finalScore++;
             }
-            else {
+            else
+            {
                 SetColor(Color.red);
             }
 
-             QuizTimer.GetComponent<WarningTimer>().StopWarning();
+            QuizTimer.GetComponent<WarningTimer>().StopWarning();
 
-              if (quizManager.numberQuestion + 1 < 10){  
-              ContinueBtn.SetActive(true);
-              }
+            if (quizManager.numberQuestion + 1 < 10)
+            {
+                ContinueBtn.SetActive(true);
+            }
         }
-        else {
-        if (isCorrect){
-            audioManager.PlaySFX(audioManager.rightanswer);
-            Debug.Log("Correct Answer");
-            StartCoroutine(AnswerResult(Color.green));
+        else
+        {
+            if (isCorrect)
+            {
+                audioManager.PlaySFX(audioManager.rightanswer);
+                Debug.Log("Correct Answer");
+                StartCoroutine(AnswerResult(Color.green));
+            }
+            else
+            {
+                audioManager.PlaySFX(audioManager.wronganswer);
+                StartCoroutine(AnswerResult(Color.red));
+            }
         }
-        else {
-            audioManager.PlaySFX(audioManager.wronganswer);
-               StartCoroutine(AnswerResult(Color.red));
-        }
-        }
-      
+
     }
 
-    public void AddTime(){
-        uiManager.CountDownSeconds+=20;
-        Debug.Log(uiManager.CountDownSeconds);
-    }
-
-
-    public void SetColor(Color colorButton){
-          GetComponent<Image>().color = colorButton;
-    }
-     IEnumerator AnswerResult(Color colorButton)
+    public void AddTime()
     {
-	
-           SetColor(colorButton);
-            yield return new WaitForSeconds(2);
-            if (isCorrect){
+        uiManager.CountDownSeconds += 20;
+    }
+
+    public void SetColor(Color colorButton)
+    {
+        GetComponent<Image>().color = colorButton;
+    }
+
+    IEnumerator AnswerResult(Color colorButton)
+    {
+
+        SetColor(colorButton);
+        yield
+        return new WaitForSeconds(2);
+        if (isCorrect)
+        {
             quizManager.correct();
-            }
-            else {
-                quizManager.QuizSkip();
-            }
-            // ColorBlock colors = GetComponent<Button>().colors;
-           SetColor(Color.white);
-            AddTime();
+        }
+        else
+        {
+            quizManager.QuizSkip();
+        }
+        SetColor(Color.white);
+        AddTime();
     }
 
 }
