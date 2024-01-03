@@ -18,6 +18,7 @@ public class UiManager : MonoBehaviour
     private float displaySeconds;
     private float displayMinutes;
     public int CountDownSeconds = 120;
+    private double currentScore = 0;
     [SerializeField]
     private Text _timer;
     private float Timeleft;
@@ -29,7 +30,13 @@ public class UiManager : MonoBehaviour
 
     public void changeScore(double score)
     {
+        currentScore += score;
         _scoreText.text = "Score: " + score;
+    }
+
+    public double getCurrentScore()
+    {
+        return currentScore;
     }
 
     // Start is called before the first frame update

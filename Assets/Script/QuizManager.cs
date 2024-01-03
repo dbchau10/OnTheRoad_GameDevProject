@@ -551,7 +551,7 @@ public class QuizManager : MonoBehaviour
                 }
                 else
                 {
-                    newSpacingY = 20f + ( GetMaxButtonHeight() / 2.5f );
+                    newSpacingY = 25f + ( GetMaxButtonHeight() / 2.2f );
                 }
                  
                 if(listAnswerGridLayoutGroup != null)
