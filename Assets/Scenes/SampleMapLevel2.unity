@@ -5905,6 +5905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 1664937758}
   Duration: 10
+  QuizMarathon: {fileID: 0}
 --- !u!114 &313412424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8608,7 +8609,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9199,6 +9200,7 @@ MonoBehaviour:
   WarningTimer: {fileID: 313412421}
   Snackbar: {fileID: 1514636574}
   checkOpenQuiz: 0
+  QuizTraffic: {fileID: 0}
 --- !u!61 &484442042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11786,6 +11788,7 @@ MonoBehaviour:
   WarningTimer: {fileID: 313412421}
   Snackbar: {fileID: 1514636574}
   checkOpenQuiz: 0
+  QuizTraffic: {fileID: 0}
 --- !u!61 &642377931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16098,6 +16101,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 1581514800}
   uiManager: {fileID: 1124994318}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &848345187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19051,7 +19056,7 @@ AudioSource:
   m_GameObject: {fileID: 945539673}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5467401750662819662, guid: 959eacd1930d2d54f96274c6f0c54035, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -21403,6 +21408,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 1581514800}
   uiManager: {fileID: 1124994318}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &1100617096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44865,6 +44872,7 @@ MonoBehaviour:
   WarningTimer: {fileID: 0}
   Snackbar: {fileID: 0}
   checkOpenQuiz: 0
+  QuizTraffic: {fileID: 0}
 --- !u!61 &1492304217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47033,8 +47041,20 @@ MonoBehaviour:
   - {fileID: 848345183}
   CurrentQuestion: 0
   QuestionTxt: {fileID: 1983936866}
+  btnPrefab: {fileID: 0}
+  QuizTest: 0
   QuizUI: {fileID: 1983936869}
   jsonFile: {fileID: 4900000, guid: 4124687589d7ab045b91e2adfa92e2a2, type: 3}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
+  QuizMarathon: 0
+  FinalScoreScene: {fileID: 0}
+  QuizScene: {fileID: 0}
+  FinalScore: {fileID: 0}
+  numberQuestion: 0
+  correctQuestion: 0
+  finalScore: 0
+  Player: {fileID: 0}
 --- !u!4 &1581514801
 Transform:
   m_ObjectHideFlags: 0
@@ -48806,6 +48826,7 @@ MonoBehaviour:
   WarningTimer: {fileID: 313412421}
   Snackbar: {fileID: 1514636574}
   checkOpenQuiz: 0
+  QuizTraffic: {fileID: 0}
 --- !u!61 &1688723236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50348,6 +50369,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 1581514800}
   uiManager: {fileID: 1124994318}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &1776289395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55258,6 +55281,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 1581514800}
   uiManager: {fileID: 1124994318}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &1983936873
 MonoBehaviour:
   m_ObjectHideFlags: 0

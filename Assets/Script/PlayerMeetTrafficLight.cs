@@ -11,20 +11,19 @@ public class PlayerMeetTrafficLight : MonoBehaviour
    public GameObject Snackbar;
    public bool checkOpenQuiz=false;
 
-   AudioManager audioManager;
+    public GameObject QuizTraffic;
+    AudioManager audioManager;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-
-
-    //    public bool checkSkip = false;
-    void OnTriggerStay2D(Collider2D other)
+ 
+   void OnTriggerStay2D(Collider2D other)
    {
         if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" && !checkOpenQuiz ){
             if (other.tag == "HeadCar"){
-                FindObjectOfType<QuizManager>().QuizOpen();
+                QuizTraffic.GetComponent<QuizManager>().QuizOpen();
                 checkOpenQuiz = true;
             }
         }
