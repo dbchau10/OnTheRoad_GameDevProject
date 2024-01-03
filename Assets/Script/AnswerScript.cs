@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AnswerScript : MonoBehaviour
@@ -10,12 +11,47 @@ public class AnswerScript : MonoBehaviour
     public UiManager uiManager;
     AudioManager audioManager;
 
+    public GameObject ContinueBtn;
+    public GameObject QuizTimer;
+  
+    Scene currentScene;
+  void Start()
+  {
+         currentScene = SceneManager.GetActiveScene ();
+  }
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void Answer(){
+
+      
+
+		
+
+		// if (currentScene.name == "QuizTest") 
+        if (quizManager.QuizTest)
+		{
+            quizManager.DisableAnswer();
+           
+            Debug.Log("Hello");
+            if (isCorrect){
+                SetColor(Color.green);
+                quizManager.correctQuestion++;
+                quizManager.finalScore++;
+            }
+            else {
+                SetColor(Color.red);
+            }
+
+             QuizTimer.GetComponent<WarningTimer>().StopWarning();
+
+              if (quizManager.numberQuestion + 1 < 10){  
+              ContinueBtn.SetActive(true);
+              }
+        }
+        else {
         if (isCorrect){
             audioManager.PlaySFX(audioManager.rightanswer);
             Debug.Log("Correct Answer");
@@ -25,7 +61,8 @@ public class AnswerScript : MonoBehaviour
             audioManager.PlaySFX(audioManager.wronganswer);
                StartCoroutine(AnswerResult(Color.red));
         }
-
+        }
+      
     }
 
     public void AddTime(){
@@ -33,10 +70,14 @@ public class AnswerScript : MonoBehaviour
         Debug.Log(uiManager.CountDownSeconds);
     }
 
+
+    public void SetColor(Color colorButton){
+          GetComponent<Image>().color = colorButton;
+    }
      IEnumerator AnswerResult(Color colorButton)
     {
 	
-            GetComponent<Image>().color = colorButton;
+           SetColor(colorButton);
             yield return new WaitForSeconds(2);
             if (isCorrect){
             quizManager.correct();
@@ -45,7 +86,7 @@ public class AnswerScript : MonoBehaviour
                 quizManager.QuizSkip();
             }
             // ColorBlock colors = GetComponent<Button>().colors;
-            GetComponent<Image>().color = Color.white;
+           SetColor(Color.white);
             AddTime();
     }
 

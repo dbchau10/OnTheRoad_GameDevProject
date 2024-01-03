@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class WarningTimer : MonoBehaviour
 {
   
-
+    Scene currentScene;
     public Image uiFill;
 
     public int Duration = 10;
 
     private int remainingDuration;
-
+    public GameObject QuizMarathon;
 
    
     public void Warning(){
@@ -39,7 +40,7 @@ public class WarningTimer : MonoBehaviour
                
                 uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remainingDuration);
                 remainingDuration--;
-                yield return new WaitForSeconds(1f);
+                yield  return new WaitForSecondsRealtime(1f);
             
           
         }
@@ -51,5 +52,11 @@ public class WarningTimer : MonoBehaviour
         //End Time , if want Do something
         Debug.Log("End");
           gameObject.SetActive(false);
+
+        //   currentScene = SceneManager.GetActiveScene();
+        //   if (currentScene.name == "QuizTest"){
+            if (QuizMarathon.GetComponent<QuizManager>().QuizTest){
+            QuizMarathon.GetComponent<QuizManager>().TimeOut();
+          }
     }
 }

@@ -1508,6 +1508,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 0}
   uiManager: {fileID: 0}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &245068585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2124,7 +2126,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2392,6 +2394,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 0}
   uiManager: {fileID: 0}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &378799514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4961,6 +4965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 790813072}
   Duration: 10
+  QuizMarathon: {fileID: 0}
 --- !u!114 &803991775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26634,6 +26639,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 0}
   uiManager: {fileID: 0}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!114 &1611684405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27288,6 +27295,8 @@ MonoBehaviour:
   isCorrect: 0
   quizManager: {fileID: 0}
   uiManager: {fileID: 0}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
 --- !u!1 &1615330384
 GameObject:
   m_ObjectHideFlags: 0

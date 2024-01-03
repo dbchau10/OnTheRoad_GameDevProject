@@ -78,7 +78,7 @@
         "Answers": [
             "Người điều khiển, người sử dụng phương tiện tham gia giao thông đường bộ.",
             "Người điều khiển, dẫn dắt súc vật; người đi bộ trên đường bộ.",
-            "<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Cả ý 1 và ý 2.</span></span>"
+            "Cả ý 1 và ý 2"
         ],
         "CorrectAnswer": 2
     },
@@ -123,7 +123,7 @@
             "Đường dành riêng cho xe ô tô và một số loại xe chuyên dùng được phép đi vào theo quy định của Luật giao thông đường bộ.",
             "Có giải phân cách phân chia đường cho xe chạy hai chiều riêng biệt mà giải phân cách này xe không đi được lên trên; không giao nhau cùng mức với một hoặc một số đường khác.",
             "Được bố trí đầy đủ trang thiết bị phục vụ, bảo đảm giao thông liên tục, an toàn, rút ngắn thời gian hành trình và chỉ cho xe ra, vào ở những điểm nhất định.",
-            "<span style=\"font-family: helvetica, arial, sans-serif;\">Tất cả các ý trên.</span>"
+            "Tất cả các ý trên."
         ],
         "CorrectAnswer": 3
     },
@@ -132,7 +132,7 @@
         "Answers": [
             "Đỗ xe trên đường phố.",
             "Sử dụng xe đạp đi trên các tuyến quốc lộ có tốc độ cao.",
-            "<span style=\"font-family: helvetica, arial, sans-serif;\">Làm hỏng (cố ý) cọc tiêu, gương cầu, dải phân cách.</span>",
+            "Làm hỏng (cố ý) cọc tiêu, gương cầu, dải phân cách.",
             "Sử dụng còi và quay đầu xe trong khu dân cư."
         ],
         "CorrectAnswer": 2
@@ -177,7 +177,7 @@
     {
         "Question": "Người điều khiển xe mô tô, ô tô, máy kéo trên đường mà trong máu hoặc hơi thở có nồng độ cồn có bị nghiêm cấm không?",
         "Answers": [
-            "<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Bị nghiêm cấm.</span></span>",
+            "Bị nghiêm cấm.",
             "Không bị nghiêm cấm, nếu nồng độ cồn trong máu ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông."
         ],
         "CorrectAnswer": 0
@@ -1091,7 +1091,7 @@
         "Question": "Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 80 km/h?",
         "Answers": [
             "Ô tô kéo rơ moóc, ô tô kéo xe khác, xe gắn máy.",
-            "<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Xe ô tô con, xe ô tô chở người đến 30 chỗ (trừ xe buýt), ô tô tải có trọng tải nhỏ hơn hoặc bằng 3,5 tấn.</span></span>"
+            ">Xe ô tô con, xe ô tô chở người đến 30 chỗ (trừ xe buýt), ô tô tải có trọng tải nhỏ hơn hoặc bằng 3,5 tấn."
         ],
         "CorrectAnswer": 1
     },
@@ -1544,7 +1544,7 @@
         "Answers": [
             "Nhận hàng hóa đúng thời gian, địa điểm đã thỏa thuận.",
             "Xuất trình giấy vận chuyển và giấy tờ tùy thân cho người kinh doanh vận tải trước khi nhận hàng hóa; thanh toán chi phí phát sinh do nhận hàng chậm.",
-            "<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Cả ý 1 và ý 2.</span></span>"
+            "Cả ý 1 và ý 2."
         ],
         "CorrectAnswer": 2
     },
@@ -1588,7 +1588,7 @@
         "Answers": [
             "Hàng vận chuyển trên xe phải được xếp đặt gọn gàng và chằng buộc chắc chắn.",
             "Khi vận chuyển hàng rời phải che đậy, không để rơi vãi.",
-            "<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Cả ý 1 và ý 2.</span></span>"
+            "Cả ý 1 và ý 2."
         ],
         "CorrectAnswer": 2
     },

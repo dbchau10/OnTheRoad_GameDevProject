@@ -2,20 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
     public List<QuestionAndAnswer> QnA;
-    public GameObject[] Options;
+    public List<GameObject> Options;
     public int CurrentQuestion;
     public TextMeshProUGUI QuestionTxt;
 
-
+    public GameObject btnPrefab;
+    public bool QuizTest = false;
+    Scene currentScene;
 
     public GameObject QuizUI;
     public TextAsset jsonFile;
 
+    public GameObject ContinueBtn;
+
+    public GameObject QuizTimer;
+
+    public bool QuizMarathon;
+
+    public GameObject FinalScoreScene;
+    public GameObject QuizScene;
+    public TextMeshProUGUI FinalScore;
     public static List<QuestionAndAnswer> ShuffleIntList(List<QuestionAndAnswer> list)
     {
         var random = new System.Random();
@@ -30,12 +42,42 @@ public class QuizManager : MonoBehaviour
         return newShuffledList;
     }
 
+    public int numberQuestion = 0;
+    public int correctQuestion = 0;
+
+    public int finalScore = 0;
+
+    public GameObject Player;
+
+     private UiManager uiManager;
+
+    private void Awake()
+    {
+        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+    }
+
     private void Start(){
 
+        //    Debug.Log(QnA.Count);
+        //    Debug.Log(Options.Count);
+        // QnA.Clear();
+        //  currentScene = SceneManager.GetActiveScene();
+        //  if (currentScene.name == "QuizTest"){
+        //     if (QuizTest){
+        //     Options.RemoveRange(1,Options.Count-1);
+        //  }
+       
+    //    QnA.Clear();
+    //    if (QuizTest){
+    //      Options.RemoveRange(1,Options.Count-1);
+    //    }
+        
         var questionsInJson = JsonUtility.FromJson<QuestionAndAnswerList>(jsonFile.text);
 
         foreach(var q in questionsInJson.questions)
-            QnA.Add(q);
+         QnA.Add(q);
+
+
         AddQuestion("Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm ?", 
             new string[] { "Bất cứ đèn nào miễn là mắt nhìn rõ phía trước", 
                 "Chỉ bật đèn chiếu xa (đèn pha) khi không nhìn rõ đường", 
@@ -262,12 +304,19 @@ public class QuizManager : MonoBehaviour
         QnA = ShuffleIntList(QnA);
         Debug.Log("Number of quizzes: " + QnA.Count);
 
-        for(int i = 0; i < QnA.Count; i++)
-        {
-            QnA[i].Question = i.ToString() + ". " + QnA[i].Question;
-            Debug.Log(QnA[i].Question);
-        }
+        // for(int i = 0; i < QnA.Count; i++)
+        // {
+        //     QnA[i].Question = i.ToString() + ". " + QnA[i].Question;
+        //     Debug.Log(QnA[i].Question);
+        // }
+
+        if (!QuizMarathon){
         generateQuestion();
+        }
+       
+
+      
+
     }
 
     void AddQuestion(string question, string[] answers, int correctAnswer)
@@ -286,15 +335,150 @@ public class QuizManager : MonoBehaviour
         QuizUI.SetActive(true);
     }
 
+    public void HandleContinue(){
+         QnA.RemoveAt(CurrentQuestion);
+       
+        for (int i = Options.Count - 1; i > 0; i--){
+            Destroy(Options[i]);
+             Options.RemoveAt(i);
+        }
+        Options[0].GetComponent<Image>().color = Color.white;
+
+        if (numberQuestion < 10){
+        generateQuestion();
+
+        if (QuizTest){
+               QuizTimer.GetComponent<WarningTimer>().Warning();
+        }
+        }
+        numberQuestion++;
+    }
+
+    bool checkStart = false;
+    bool timerReached = false;
+     float timer = 0;
+    void FirstStart(){
+            numberQuestion = 0;
+            correctQuestion = 0; 
+            timer = 0;
+            timerReached = false;
+       
+        generateQuestion();
+        QuizTimer.GetComponent<WarningTimer>().Warning();
+        checkStart = true;
+    }
+
+   
+    void Update(){
+        if (QuizTest){
+            if (!checkStart){
+                FirstStart();
+            }
+
+            if (numberQuestion + 1 == 10){
+           bool allButtonsUninteractable = true;
+
+            for (int i = 0; i < Options.Count; i++)
+            {
+                Button button = Options[i].GetComponent<Button>();
+
+                if (button.interactable)
+                {
+                    allButtonsUninteractable = false;
+                    break; // No need to check further if one button is interactable
+                }
+            }
+
+            if (allButtonsUninteractable){
+                //  FinalScoreScene.SetActive(true);
+                // FinalScore.text = correctQuestion.ToString() + "/10";
+
+            //  StartCoroutine(LoadFinalScoreScene());
+            if (!timerReached)
+            timer += Time.unscaledDeltaTime;
+
+                if (!timerReached && timer > 2)
+                {
+                    Debug.Log("Done waiting");
+                    
+                     FinalScoreScene.SetActive(true);
+                    FinalScore.text = correctQuestion.ToString() + "/10";
+                    timerReached = true;
+                }
+            }
+        }
+        }
+     
+
+    }
+
+
+    public void HandleReturn(){
+
+        // StopCoroutine(LoadFinalScoreScene());
+         QnA.RemoveAt(CurrentQuestion);
+       
+        for (int i = Options.Count - 1; i > 0; i--){
+            Destroy(Options[i]);
+             Options.RemoveAt(i);
+        }
+        Options[0].GetComponent<Image>().color = Color.white;
+        DisableAnswer();
+
+        uiManager.changeScore(finalScore);
+       
+        FinalScoreScene.SetActive(false);
+          QuizScene.SetActive(false);
+           Player.SetActive(true);
+        QuizTest = false;
+        checkStart = false;
+        Time.timeScale = 1;
+        // SceneManager.LoadScene(1);
+
+        
+    }
+    //  IEnumerator LoadFinalScoreScene()
+    // {
+
+    //      yield return new WaitWhile(() => QuizTest);
+    //        yield return new WaitForSecondsRealtime(2);
+
+    //        Debug.Log("bug");
+    //            FinalScoreScene.SetActive(true);
+    //             FinalScore.text = correctQuestion.ToString() + "/10";
+                
+         
+    // }
+    public void DisableAnswer(){
+        for (int i = 0; i < Options.Count; i ++){
+            Options[i].GetComponent<Button>().interactable = !Options[i].GetComponent<Button>().interactable;
+        }
+    }
+
+    public void TimeOut(){
+        DisableAnswer();
+        for (int i= 0; i < Options.Count; i++){
+           if (Options[i].GetComponent<AnswerScript>().isCorrect) {
+              Options[i].GetComponent<Image>().color = Color.green;
+           }
+           else {
+             Options[i].GetComponent<Image>().color = Color.red;
+           }
+          
+        }
+
+        ContinueBtn.SetActive(true);
+
+    }
      public void QuizSkip(){
         QuizUI.SetActive(false);
+         generateQuestion();
 
-        //  QnA.RemoveAt(CurrentQuestion);
-        generateQuestion();
+       
     }
     public void correct(){
         QuizUI.SetActive(false);
-        QnA.RemoveAt(CurrentQuestion);
+         QnA.RemoveAt(CurrentQuestion);
         generateQuestion();
     }
 
@@ -304,21 +488,142 @@ public class QuizManager : MonoBehaviour
               //Debug.Log(i + "index");
               //Debug.Log(Options.Count + "Count");
            Options[i].GetComponent<AnswerScript>().isCorrect = false;
+           
            Options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
-        
-            if (QnA[CurrentQuestion].CorrectAnswer == i + 1){
+           
+            if (QnA[CurrentQuestion].CorrectAnswer == i ){
                 Options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
         }
     }
-    void generateQuestion(){
-        if (QnA.Count > 0) {
-        CurrentQuestion = Random.Range(0,QnA.Count);
-        QuestionTxt.text =  QnA[CurrentQuestion].Question;
 
-        SetAnswers();
+    void generateQuestion()
+    {
+        if (QnA.Count > 0)
+        {
 
+          
+            CurrentQuestion = Random.Range(0, QnA.Count);
+
+            // if (currentScene.name == "QuizTest"){
+                if (QuizTest){
+            QuestionTxt.text = QnA[CurrentQuestion].Question;
+            Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
+
+            for (int i = 0; i < QnA[CurrentQuestion].Answers.Length - 1; i++)
+            {
+                GameObject newButton = Instantiate(btnPrefab);
+                RectTransform rectTransform = newButton.GetComponent<RectTransform>();
+                TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+
+                if (rectTransform != null && buttonText != null)
+                {
+                    buttonText.text = QnA[CurrentQuestion].Answers[i]; // Set button text
+
+                    // Adjust button size based on text length
+                    AdjustButtonHeightBasedOnText(rectTransform, buttonText);
+
+                    rectTransform.anchoredPosition = new Vector2(firstChoicePosition.x, firstChoicePosition.y - 115f);
+
+                    // Update position for the next button
+                    firstChoicePosition = new Vector2(firstChoicePosition.x, rectTransform.anchoredPosition.y);
+                }
+
+                newButton.SetActive(true);
+                newButton.transform.SetParent(btnPrefab.transform.parent.transform, false);
+                Options.Add(newButton);
+            }   
+            } else {
+                while (QnA[CurrentQuestion].Answers.Length !=4){
+                      CurrentQuestion = Random.Range(0, QnA.Count);
+                }
+                   QuestionTxt.text = QnA[CurrentQuestion].Question;
+                
+            }
+
+            GridLayoutGroup listAnswerGridLayoutGroup = Options[0].transform.parent.GetComponent<GridLayoutGroup>();
+            if (QnA[CurrentQuestion].Answers.Length >= 2)
+            {
+                float newSpacingY;
+                if (AllButtonsHeightLessThan80() == true)
+                {
+                    newSpacingY = 30f;
+                }
+                else
+                {
+                    newSpacingY = 25f + ( GetMaxButtonHeight() / 2.2f );
+                }
+                 
+                if(listAnswerGridLayoutGroup != null)
+                {
+                    listAnswerGridLayoutGroup.spacing = new Vector2(listAnswerGridLayoutGroup.spacing.x, newSpacingY);
+                }    
+            }    
+
+            SetAnswers();
+        }
+    }
+
+    void AdjustButtonHeightBasedOnText(RectTransform rectTransform, TextMeshProUGUI buttonText)
+    {
+        float paddingX = 20f; // Adjust these values as needed
+        float paddingY = 10f;
+
+        // Get preferred width and height based on button text
+        float preferredWidth = buttonText.preferredWidth;
+        float preferredHeight = buttonText.preferredHeight;
+
+        // Set button size based on preferred width and height
+        rectTransform.sizeDelta = new Vector2(preferredWidth + paddingX, preferredHeight + paddingY);
+    }
+
+    float GetMaxButtonHeight()
+    {
+        float maxHeight = 0f;
+
+        foreach (GameObject button in Options)
+        {
+            RectTransform rectTransform = button.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                float buttonHeight = rectTransform.rect.height;
+                if (buttonHeight >= 150f && buttonHeight <= 190f)
+                {
+                    return buttonHeight;
+                }
+                else if(buttonHeight > 190f)
+                {
+                    return buttonHeight + 50f;
+                }
+                else if (buttonHeight > maxHeight)
+                {
+                    maxHeight = buttonHeight;
+                }
+            }
         }
 
+        return maxHeight;
     }
+
+    bool AllButtonsHeightLessThan80()
+    {
+        foreach (GameObject button in Options)
+        {
+            RectTransform rectTransform = button.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                float buttonHeight = rectTransform.rect.height;
+                if (buttonHeight >= 80f)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+
+
+
 }
