@@ -18,6 +18,10 @@ public class Driver2 : MonoBehaviour
     [SerializeField] ParticleSystem ps, psBrake;
     [SerializeField] Rigidbody2D player;
     [SerializeField] GameObject back;
+    [SerializeField] GameObject frontLight;
+    [SerializeField] GameObject backLight;
+
+    bool turnOnLight = true;
 
     [SerializeField] TextMeshProUGUI CoinCounts;
 
@@ -31,6 +35,7 @@ public class Driver2 : MonoBehaviour
     public CoinCollection coinCollects;
     private UiManager uiManager;
     AudioManager audioManager;
+    System.Random rand = new();
 
     private void Awake()
     {
@@ -42,6 +47,16 @@ public class Driver2 : MonoBehaviour
     {
 
         player = transform.GetComponent<Rigidbody2D>();
+        StartCoroutine(LightCooldown());
+    }
+
+    IEnumerator LightCooldown()
+    {
+        while(isActiveAndEnabled)
+        {
+            yield return new WaitForSeconds(rand.Next(1, 7));
+            turnOnLight = !turnOnLight;
+        }
     }
 
     // Update is called once per frame
@@ -74,8 +89,9 @@ public class Driver2 : MonoBehaviour
         if (isMoving)
         {
             float mSpeed = moveSpeed;
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
+                backLight.SetActive(true);
                 if (player.velocity.magnitude >= 1f) mSpeed = moveSpeed / 100f;
                 else mSpeed = 0;
             }
@@ -87,6 +103,13 @@ public class Driver2 : MonoBehaviour
                 ps.Play();
                 //Debug.Log("Emit FUmes" + Time.deltaTime);
             }
+        }
+
+        frontLight.SetActive(turnOnLight);
+        backLight.SetActive(turnOnLight);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !turnOnLight) {
+            turnOnLight = true;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
