@@ -43,7 +43,7 @@ public class PlayerMeetTrafficLight : MonoBehaviour
   
    void OnTriggerExit2D(Collider2D other)
    {
-        if (TrafficLight?.GetComponent<ChangeTrafficLightState>()?.currentLightState == "Red")
+        if (TrafficLight && TrafficLight.GetComponent<ChangeTrafficLightState>() && TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red")
             if (other.tag == "HeadCar"){
                 audioManager.PlaySFX(audioManager.alert);
 
