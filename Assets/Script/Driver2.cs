@@ -30,10 +30,12 @@ public class Driver2 : MonoBehaviour
     // Start is called before the first frame update
     public CoinCollection coinCollects;
     private UiManager uiManager;
+    AudioManager audioManager;
 
     private void Awake()
     {
         uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -163,10 +165,12 @@ public class Driver2 : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "SpeedUp"){
+            audioManager.PlaySFX(audioManager.speedup);
             StartCoroutine(SpeedBoost(5f));
             Destroy(other.gameObject);
         }
         else if (other.tag == "Coin"){
+            audioManager.PlaySFX(audioManager.coinpickup);
             coins++;
             currentScore++;
             uiManager.changeScore(currentScore);

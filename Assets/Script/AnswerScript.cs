@@ -9,6 +9,7 @@ public class AnswerScript : MonoBehaviour
     public bool isCorrect = false;
     public QuizManager quizManager;
     public UiManager uiManager;
+    AudioManager audioManager;
 
     public GameObject ContinueBtn;
     public GameObject QuizTimer;
@@ -18,6 +19,11 @@ public class AnswerScript : MonoBehaviour
   {
          currentScene = SceneManager.GetActiveScene ();
   }
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public void Answer(){
 
       
@@ -47,13 +53,12 @@ public class AnswerScript : MonoBehaviour
         }
         else {
         if (isCorrect){
+            audioManager.PlaySFX(audioManager.rightanswer);
             Debug.Log("Correct Answer");
             StartCoroutine(AnswerResult(Color.green));
-           
-            
-        
         }
         else {
+            audioManager.PlaySFX(audioManager.wronganswer);
                StartCoroutine(AnswerResult(Color.red));
         }
         }

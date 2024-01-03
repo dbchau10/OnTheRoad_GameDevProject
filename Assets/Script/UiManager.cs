@@ -17,7 +17,7 @@ public class UiManager : MonoBehaviour
     private int roundedRestSeconds;
     private float displaySeconds;
     private float displayMinutes;
-    public int CountDownSeconds = 120;
+    public int CountDownSeconds = 150;
     private double currentScore = 0;
     [SerializeField]
     private Text _timer;
@@ -31,7 +31,7 @@ public class UiManager : MonoBehaviour
     public void changeScore(double score)
     {
         currentScore += score;
-        _scoreText.text = "Score: " + score;
+        _scoreText.text = "Score: " + currentScore;
     }
 
     public double getCurrentScore()
