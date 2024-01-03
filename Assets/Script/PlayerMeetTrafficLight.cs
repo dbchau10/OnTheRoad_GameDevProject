@@ -43,14 +43,15 @@ public class PlayerMeetTrafficLight : MonoBehaviour
   
    void OnTriggerExit2D(Collider2D other)
    {
-        if (TrafficLight.GetComponent<ChangeTrafficLightState>().currentLightState == "Red" ){
+        if (TrafficLight?.GetComponent<ChangeTrafficLightState>()?.currentLightState == "Red")
             if (other.tag == "HeadCar"){
                 audioManager.PlaySFX(audioManager.alert);
+
                 WarningTimer.GetComponent<WarningTimer>().Warning();
                 var snackbar = Snackbar.GetComponent<MoveModal>();
                 snackbar.content = "Bạn đang vượt đèn đỏ!";
                 snackbar.gameObject.SetActive(true);
             }
-        }
-    }
+   }
 }
+

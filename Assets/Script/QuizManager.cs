@@ -428,11 +428,16 @@ public class QuizManager : MonoBehaviour
         uiManager.changeScore(finalScore);
        
         FinalScoreScene.SetActive(false);
-          QuizScene.SetActive(false);
+        QuizScene.SetActive(false);
+         Time.timeScale = 1;
+        //  QuizScene.GetComponent<QuizTransition>().CloseQuiz();
+       
            Player.SetActive(true);
         QuizTest = false;
         checkStart = false;
-        Time.timeScale = 1;
+
+       
+        // Time.timeScale = 1;
         // SceneManager.LoadScene(1);
 
         
