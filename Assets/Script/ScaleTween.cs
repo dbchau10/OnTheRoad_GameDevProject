@@ -12,7 +12,7 @@ public class ScaleTween : MonoBehaviour
     bool timerReached = false;
    public void OnEnable()
    {
-         LeanTween.scale(gameObject, new Vector3(1,1,1), 0.5f).setDelay(1f).setEase(LeanTweenType.easeInOutElastic).setOnComplete(OnClose);
+         LeanTween.scale(gameObject, new Vector3(1,1,1), 0.5f).setDelay(1f).setOnComplete(OnClose);
         //  if (!timerReached)
         //     timer += Time.unscaledDeltaTime;
 
