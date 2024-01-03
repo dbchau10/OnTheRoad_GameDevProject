@@ -78,11 +78,11 @@ public class UiManager : MonoBehaviour
             {
                 timetext = "0:00";
                 restSeconds = CountDownSeconds;
-                Debug.Log("game done");
+                //Debug.Log("game done");
                 gameOver = true;
             }
             startTime = Time.time;
-            //Debug.Log("start: " + startTime);
+            ////Debug.Log("start: " + startTime);
 
         }
         else {
@@ -116,7 +116,7 @@ public class UiManager : MonoBehaviour
 
     void GameOverSequence()
     {
-        Debug.Log("game overrr");
+        //Debug.Log("game overrr");
         // _gameOverText.gameObject.SetActive(true);
         // _restartText.gameObject.SetActive(true);
         GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();

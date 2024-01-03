@@ -29,7 +29,7 @@ public class FollowCamera : MonoBehaviour
             else if (currentScene.name == "SampleMapLevel3"){
 
 
-               Debug.Log("Scene3");
+               //Debug.Log("Scene3");
                   transform.position = new Vector3(Mathf.Clamp(targetPosition.x,6f,360f), Mathf.Clamp(targetPosition.y,-91f,127.1f), targetPosition.z);
             }
     }
