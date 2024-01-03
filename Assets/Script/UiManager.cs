@@ -22,6 +22,7 @@ public class UiManager : MonoBehaviour
     private Text _timer;
     private float Timeleft;
     string timetext;
+    bool gameOver = false;
 
     public static Timer instance;
 
@@ -36,7 +37,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         _scoreText.text = "Score: 0";
-        startTime = Time.deltaTime;
+        gameOver = false;
     }
 
     public void AdjustTimeLeft(int amount)
@@ -63,18 +64,30 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timeleft = Time.time - startTime;
+        bool gameDone = FindObjectOfType<GameManagerUI>().gameDone;
+
+        if (gameDone){
+            if (!gameOver)
+            {
+                timetext = "0:00";
+                restSeconds = CountDownSeconds;
+                Debug.Log("game done");
+                gameOver = true;
+            }
+            startTime = Time.time;
+            //Debug.Log("start: " + startTime);
+
+        }
+        else {
+            Timeleft = Time.time - startTime;
+            Debug.Log("left = " + Timeleft + " time: " + Time.time + " start: " + startTime);
         restSeconds = CountDownSeconds - (Timeleft);
-        
+            Debug.Log("rest = " + restSeconds);
         roundedRestSeconds = Mathf.CeilToInt(restSeconds);
         displaySeconds = roundedRestSeconds % 60;
         displayMinutes = (roundedRestSeconds / 60) % 60;
-
         timetext = (displayMinutes.ToString() + ":");
-        bool gameDone = FindObjectOfType<GameManagerUI>().gameDone;
-        if (gameDone){
-             timetext = "00:00";
-        }else {
+
         if (displaySeconds > 9)
         {
             timetext = timetext + displaySeconds.ToString();
@@ -88,13 +101,17 @@ public class UiManager : MonoBehaviour
             timetext = timetext + "00";
         }
         }
+        if (timetext == "0:00" && !gameOver)
+        {
+            GameOverSequence();
+            return;
+        }
         _timer.text = timetext;
-
-        if (restSeconds <= 0) GameOverSequence();
     }
 
     void GameOverSequence()
     {
+        Debug.Log("game overrr");
         // _gameOverText.gameObject.SetActive(true);
         // _restartText.gameObject.SetActive(true);
         GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
