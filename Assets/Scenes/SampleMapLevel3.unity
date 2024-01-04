@@ -2528,7 +2528,7 @@ MonoBehaviour:
   numberQuestion: 0
   correctQuestion: 0
   finalScore: 0
-  Player: {fileID: 0}
+  Player: {fileID: 1941274395}
 --- !u!4 &302942059
 Transform:
   m_ObjectHideFlags: 0
