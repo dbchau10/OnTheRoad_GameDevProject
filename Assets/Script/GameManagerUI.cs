@@ -30,6 +30,8 @@ public class GameManagerUI : MonoBehaviour
     public void Restart() {
         gameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetString("hasCheckpoint", "");
+        Time.timeScale = 1;
     }
     
 }

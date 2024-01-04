@@ -9923,6 +9923,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 104362817033506318, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
+      propertyPath: m_text
+      value: RESTART
+      objectReference: {fileID: 0}
     - target: {fileID: 1431515763434589286, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -9934,18 +9938,18 @@ PrefabInstance:
     - target: {fileID: 1431515763434589286, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 581568455}
+      objectReference: {fileID: 545381465}
     - target: {fileID: 1431515763434589286, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1431515763434589286, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitLevel
+      value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 1431515763434589286, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseManager, Assembly-CSharp
+      value: GameManagerUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1431515763434589286, guid: 9cbb16ee526d9484fb4f5edf4c70a67a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

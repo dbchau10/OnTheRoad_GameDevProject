@@ -8,5 +8,6 @@ public class SceneManagerScript : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
+        PlayerPrefs.SetString("hasCheckpoint", "");
     }
 }

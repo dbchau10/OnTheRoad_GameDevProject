@@ -47,10 +47,16 @@ public class PlayerMeetTrafficLight : MonoBehaviour
             if (other.tag == "HeadCar"){
                 audioManager.PlaySFX(audioManager.alert);
 
-                WarningTimer.GetComponent<WarningTimer>().Warning();
+                if (WarningTimer)
+
+                    WarningTimer.GetComponent<WarningTimer>().Warning();
                 var snackbar = Snackbar.GetComponent<MoveModal>();
                 snackbar.content = "Bạn đang vượt đèn đỏ!";
                 snackbar.gameObject.SetActive(true);
+                PlayerPrefs.SetString("hasCheckpoint", "true");
+                PlayerPrefs.SetFloat("PlayerX", other.transform.position.x);
+                PlayerPrefs.SetFloat("PlayerY", other.transform.position.y);
+                PlayerPrefs.SetFloat("PlayerZ", other.transform.position.z);
             }
    }
 }

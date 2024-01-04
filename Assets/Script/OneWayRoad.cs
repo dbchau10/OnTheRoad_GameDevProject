@@ -36,17 +36,24 @@ public class OneWayRoad : MonoBehaviour
 
     public void showWarning()
     {
-        WarningTimer.GetComponent<WarningTimer>().Warning();
-        var snackbar = Snackbar.GetComponent<MoveModal>();
-        snackbar.content = "Bạn đang đi ngược chiều, nên đổi chiều ngược lại.";
-        snackbar.gameObject.SetActive(true);
+        if (WarningTimer)
+
+            WarningTimer.GetComponent<WarningTimer>()?.Warning();
+        {
+            var snackbar = Snackbar.GetComponent<MoveModal>();
+            snackbar.content = "Bạn đang đi ngược chiều, nên đổi chiều ngược lại.";
+            snackbar.gameObject.SetActive(true);
+        }
     }
 
     public void closeWarning()
     {
-        WarningTimer.GetComponent<WarningTimer>().StopWarning();
-        var snackbar = Snackbar.GetComponent<MoveModal>();
-        snackbar.gameObject.SetActive(false);
+        if (WarningTimer)
+        {
+            WarningTimer.GetComponent<WarningTimer>().StopWarning();
+            var snackbar = Snackbar.GetComponent<MoveModal>();
+            snackbar.gameObject.SetActive(false);
+        }
     }
 
     internal (int x, int y) getDirection()

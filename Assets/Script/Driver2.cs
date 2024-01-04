@@ -47,6 +47,9 @@ public class Driver2 : MonoBehaviour
     {
 
         player = transform.GetComponent<Rigidbody2D>();
+        Debug.Log(PlayerPrefs.GetString("hasCheckpoint"));
+        if (PlayerPrefs.GetString("hasCheckpoint") != "")
+            player.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
         StartCoroutine(LightCooldown());
     }
 
