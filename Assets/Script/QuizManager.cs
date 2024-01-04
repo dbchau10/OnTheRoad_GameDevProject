@@ -425,8 +425,9 @@ public class QuizManager : MonoBehaviour
         }
         Options[0].GetComponent<Image>().color = Color.white;
         DisableAnswer();
-
+        if (currentScene.name != "SampleMapLevel3"){
         uiManager.changeScore(finalScore);
+        }
        
         FinalScoreScene.SetActive(false);
         QuizScene.SetActive(false);
