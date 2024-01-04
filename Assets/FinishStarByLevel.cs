@@ -33,7 +33,7 @@ public class FinishStarByLevel : MonoBehaviour
         {
             spriteRenderer.sprite = img2Star;
         }
-        else
+        else if (score>= 20)
         {
             spriteRenderer.sprite = img1Star;
         }
