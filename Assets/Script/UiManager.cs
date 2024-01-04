@@ -33,6 +33,11 @@ public class UiManager : MonoBehaviour
     {
         currentScore += score;
         _scoreText.text = "Score: " + currentScore;
+
+        if(currentScore <= -5)
+        {
+            gameUIControl.GameOver();
+        }
     }
 
     public double getCurrentScore()
@@ -73,7 +78,8 @@ public class UiManager : MonoBehaviour
     {
         bool gameDone = FindObjectOfType<GameManagerUI>().gameDone;
 
-        if (gameDone){
+        if (gameDone)
+        {
             if (!gameOver)
             {
                 timetext = "0:00";
@@ -85,26 +91,27 @@ public class UiManager : MonoBehaviour
             ////Debug.Log("start: " + startTime);
 
         }
-        else {
-            Timeleft = Time.time - startTime;
-        restSeconds = CountDownSeconds - (Timeleft);
-        roundedRestSeconds = Mathf.CeilToInt(restSeconds);
-        displaySeconds = roundedRestSeconds % 60;
-        displayMinutes = (roundedRestSeconds / 60) % 60;
-        timetext = (displayMinutes.ToString() + ":");
-
-        if (displaySeconds > 9)
-        {
-            timetext = timetext + displaySeconds.ToString();
-        }
-        else if (displaySeconds >=0)
-        {
-            timetext = timetext + "0" + displaySeconds.ToString();
-        }
         else
         {
-            timetext = timetext + "00";
-        }
+            Timeleft = Time.time - startTime;
+            restSeconds = CountDownSeconds - (Timeleft);
+            roundedRestSeconds = Mathf.CeilToInt(restSeconds);
+            displaySeconds = roundedRestSeconds % 60;
+            displayMinutes = (roundedRestSeconds / 60) % 60;
+            timetext = (displayMinutes.ToString() + ":");
+
+            if (displaySeconds > 9)
+            {
+                timetext = timetext + displaySeconds.ToString();
+            }
+            else if (displaySeconds >= 0)
+            {
+                timetext = timetext + "0" + displaySeconds.ToString();
+            }
+            else
+            {
+                timetext = timetext + "00";
+            }
         }
         if (timetext == "0:00" && !gameOver)
         {

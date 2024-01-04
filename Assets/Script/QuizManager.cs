@@ -342,6 +342,7 @@ public class QuizManager : MonoBehaviour
             Destroy(Options[i]);
              Options.RemoveAt(i);
         }
+        
         Options[0].GetComponent<Image>().color = Color.white;
 
         if (numberQuestion < 10){
@@ -473,7 +474,14 @@ public class QuizManager : MonoBehaviour
         }
 
         ContinueBtn.SetActive(true);
-
+        if (correctQuestion == 10)
+        {
+            uiManager.AdjustTimeLeft(10);
+        }
+        else
+        {
+            uiManager.changeScore(-1);
+        }
     }
      public void QuizSkip(){
         QuizUI.SetActive(false);
@@ -509,6 +517,7 @@ public class QuizManager : MonoBehaviour
             // if (currentScene.name == "QuizTest"){
                 if (QuizTest){
             QuestionTxt.text = QnA[CurrentQuestion].Question;
+
             Vector2 firstChoicePosition = Options[0].GetComponent<RectTransform>().anchoredPosition;
 
             for (int i = 0; i < QnA[CurrentQuestion].Answers.Length - 1; i++)

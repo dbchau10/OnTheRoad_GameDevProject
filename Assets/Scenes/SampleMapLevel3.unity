@@ -185,6 +185,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5204834728544453761, guid: 1e5919d48443b9341987c856ac4bbab6, type: 3}
   m_PrefabInstance: {fileID: 16227175}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &25888532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5683172873540610129, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
+  m_PrefabInstance: {fileID: 1612086322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &55266200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1654,6 +1665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &232398563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1987,7 +2000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 1362812648}
   Duration: 10
-  QuizMarathon: {fileID: 0}
+  QuizMarathon: {fileID: 302942057}
 --- !u!114 &250539158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,7 +2595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA: []
-  Options: []
+  Options:
+  - {fileID: 1091275801}
   CurrentQuestion: 0
   QuestionTxt: {fileID: 1210377011}
   btnPrefab: {fileID: 1091275801}
@@ -2730,6 +2744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &308765855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4249,6 +4265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1 &481848878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,6 +4522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1001 &495195423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5750,6 +5770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &716663124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6522,6 +6544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1 &803991772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,7 +6599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 790813072}
   Duration: 10
-  QuizMarathon: {fileID: 0}
+  QuizMarathon: {fileID: 302942057}
 --- !u!114 &803991775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6776,7 +6800,7 @@ RectTransform:
   m_AnchorMin: {x: 0.025, y: 0.80300003}
   m_AnchorMax: {x: 0.9837917, y: 0.9712963}
   m_AnchoredPosition: {x: 0, y: -26.1662}
-  m_SizeDelta: {x: 0, y: -259.25995}
+  m_SizeDelta: {x: 0, y: -16.549988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827796718
 MonoBehaviour:
@@ -8047,6 +8071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1 &895838410
 GameObject:
   m_ObjectHideFlags: 0
@@ -8361,6 +8387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &905199765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8690,7 +8718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1918, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916263369
@@ -10378,10 +10406,10 @@ PrefabInstance:
     - target: {fileID: 9083058818736620212, guid: 6380141a0391f3948901cda8a3b9ac9f, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -3863797228635360167, guid: c4fdc6b5bed77f7449087eeb72c126fe, type: 2}
+      objectReference: {fileID: 2479104174872373858, guid: 92657682e666abc4ab861b614bd46075, type: 2}
     - target: {fileID: 9083058818736620212, guid: 6380141a0391f3948901cda8a3b9ac9f, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10414,7 +10442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 302942058}
   uiManager: {fileID: 0}
   ContinueBtn: {fileID: 1557882174}
   QuizTimer: {fileID: 250539156}
@@ -10689,6 +10717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1110513305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11147,6 +11177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1140946108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24857,6 +24889,72 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1162037323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162037325}
+  - component: {fileID: 1162037324}
+  m_Layer: 0
+  m_Name: QuizManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162037324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162037323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814e979491376134fa42c1d700c36142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QnA: []
+  Options:
+  - {fileID: 1612086325}
+  - {fileID: 378799509}
+  - {fileID: 1611684400}
+  - {fileID: 245068580}
+  CurrentQuestion: 0
+  QuestionTxt: {fileID: 25888532}
+  btnPrefab: {fileID: 0}
+  QuizTest: 0
+  QuizUI: {fileID: 1612086326}
+  jsonFile: {fileID: 4900000, guid: 4124687589d7ab045b91e2adfa92e2a2, type: 3}
+  ContinueBtn: {fileID: 0}
+  QuizTimer: {fileID: 0}
+  QuizMarathon: 0
+  FinalScoreScene: {fileID: 0}
+  QuizScene: {fileID: 0}
+  FinalScore: {fileID: 0}
+  numberQuestion: 0
+  correctQuestion: 0
+  finalScore: 0
+  Player: {fileID: 0}
+--- !u!4 &1162037325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162037323}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -399.86288, y: 144.40382, z: -6.713387}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168087708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6966925464303929935, guid: 6c8caad40bd31b64bb2066da4d5c1c92, type: 3}
@@ -24972,8 +25070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1840.8801, y: -52.129974}
-  m_SizeDelta: {x: 2514.02, y: 64.25995}
+  m_AnchoredPosition: {x: 920.44006, y: -82.60498}
+  m_SizeDelta: {x: 1800.8801, y: 125.20997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210377010
 MonoBehaviour:
@@ -25217,6 +25315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1233754157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25424,6 +25524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1001 &1275839446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27418,6 +27520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1502699563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27756,6 +27860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1550398367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27932,7 +28038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069ddcce0c39f6240a2074eea46a373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuizMarathon: {fileID: 0}
+  QuizMarathon: {fileID: 302942057}
 --- !u!114 &1557882177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28225,6 +28331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1603847967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28629,7 +28737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1607324106402228013, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1607324106402228013, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -28817,7 +28925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750589838383639608, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5750589838383639608, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -28825,7 +28933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5750589838383639608, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5750589838383639608, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_SizeDelta.x
@@ -28913,7 +29021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7925390072902516345, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7925390072902516345, guid: 288f3e1b54fe8dd488068ee36a8818b6, type: 3}
       propertyPath: m_AnchorMin.y
@@ -29500,6 +29608,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1001 &1680396596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29812,6 +29922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1725082402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30019,6 +30131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1 &1742726215
 GameObject:
   m_ObjectHideFlags: 0
@@ -30140,8 +30254,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2072189834}
+  m_Children: []
   m_Father: {fileID: 1766333365}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -30343,6 +30456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!61 &1755151874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30617,6 +30732,7 @@ GameObject:
   - component: {fileID: 1778428389}
   - component: {fileID: 1778428388}
   - component: {fileID: 1778428387}
+  - component: {fileID: 1778428392}
   m_Layer: 5
   m_Name: Camera
   m_TagString: MainCamera
@@ -30745,6 +30861,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778428392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778428386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1784440374
 GameObject:
   m_ObjectHideFlags: 0
@@ -31239,6 +31399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1 &1904819822
 GameObject:
   m_ObjectHideFlags: 0
@@ -31961,6 +32123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1 &1969530992
 GameObject:
   m_ObjectHideFlags: 0
@@ -32741,6 +32905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningTimer: {fileID: 803991772}
   Snackbar: {fileID: 481848878}
+  QuizScene: {fileID: 916263367}
+  QuizMarathon: {fileID: 302942057}
 --- !u!1001 &2078541962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32970,7 +33136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 202879459}
-  gameCompletedUI: {fileID: 1689484503}
+  gameCompletedUI: {fileID: 1766333364}
   backgroundMusic: {fileID: 1904819822}
   gameOverSound: {fileID: 8300000, guid: bd5082f4b135de343ac524b8817a9a7b, type: 3}
   gameCompletedSound: {fileID: 8300000, guid: f987bfc0b774d3f4e82dc47e91f78584, type: 3}
@@ -33550,3 +33716,4 @@ SceneRoots:
   - {fileID: 1652324204}
   - {fileID: 1904819824}
   - {fileID: 134532894}
+  - {fileID: 1162037325}
