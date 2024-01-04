@@ -37,18 +37,19 @@ public class ColliderLevel3 : MonoBehaviour
             // cong 1 diem
             Debug.Log("cong 1 diem");
         }
-
-        if(collision.tag == "HeadCar")
-        {
-            QuizScene.SetActive(true);
-            QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         // tru 1 diem
         Debug.Log("tru 1 diem");
+
+        if (firstEnter)
+        if (collision.tag == "HeadCar")
+        {
+            QuizScene.SetActive(true);
+            QuizMarathon.GetComponent<QuizManager>().QuizTest = true;
+        }
 
     }
 

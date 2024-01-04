@@ -99,7 +99,7 @@ public class Delivery : MonoBehaviour
             isPennalize = true;
             // Debug.Log("One way road");
             // parent.penalize(-1);
-            road.showWarning();
+            // road.showWarning();
             if (isPennalize && !isFlicking)
                 StartCoroutine(startFlicking());
         }
