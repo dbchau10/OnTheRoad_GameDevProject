@@ -24708,6 +24708,10 @@ PrefabInstance:
       propertyPath: TrafficLight
       value: 
       objectReference: {fileID: 1742578963}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: WarningTimer
+      value: 
+      objectReference: {fileID: 1314835758}
     - target: {fileID: 8655778551341673711, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 156.5
@@ -40472,6 +40476,10 @@ PrefabInstance:
       value: SchoolGirl
       objectReference: {fileID: 0}
     - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: Snackbar
+      value: 
+      objectReference: {fileID: 1693260482}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: direction
       value: 1
       objectReference: {fileID: 0}
@@ -40479,6 +40487,10 @@ PrefabInstance:
       propertyPath: TrafficLight
       value: 
       objectReference: {fileID: 1512262318}
+    - target: {fileID: 3738195804707408473, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
+      propertyPath: WarningTimer
+      value: 
+      objectReference: {fileID: 1314835758}
     - target: {fileID: 8655778551341673711, guid: ee907836c00e9b64aad2b6af9ff0157f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 347.6
