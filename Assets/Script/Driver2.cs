@@ -54,7 +54,7 @@ public class Driver2 : MonoBehaviour
     {
         while(isActiveAndEnabled)
         {
-            yield return new WaitForSeconds(rand.Next(1, 7));
+            yield return new WaitForSeconds(rand.Next(3, 7));
             turnOnLight = !turnOnLight;
         }
     }

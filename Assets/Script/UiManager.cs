@@ -88,9 +88,10 @@ public class UiManager : MonoBehaviour
                 gameOver = true;
             }
             startTime = Time.time;
-            ////Debug.Log("start: " + startTime);
+            Debug.Log("start: " + startTime);
 
         }
+
         else
         {
             Timeleft = Time.time - startTime;
@@ -123,7 +124,7 @@ public class UiManager : MonoBehaviour
 
     void GameOverSequence()
     {
-        //Debug.Log("game overrr");
+        Debug.Log("game overrr");
         // _gameOverText.gameObject.SetActive(true);
         // _restartText.gameObject.SetActive(true);
         GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
