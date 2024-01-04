@@ -8,6 +8,7 @@ public class QuizTransition : MonoBehaviour
     public void OnEnable()
     {
         pause = true;
+        LeanTween.reset();
         LeanTween.moveLocalX(gameObject, 0f, 0.5f).setEase(LeanTweenType.easeInOutCirc).setDelay(0.5f).setOnComplete(OnPause);
     }
 

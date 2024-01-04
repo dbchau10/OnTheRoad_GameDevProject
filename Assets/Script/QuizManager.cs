@@ -446,7 +446,7 @@ public class QuizManager : MonoBehaviour
             }
             else
             {
-                uiManager.changeScore(-1);
+                uiManager.changeScore(-1d);
             }
         }
 
