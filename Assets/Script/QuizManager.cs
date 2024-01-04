@@ -437,6 +437,18 @@ public class QuizManager : MonoBehaviour
         QuizTest = false;
         checkStart = false;
 
+        if(currentScene.name == "SampleMapLevel3")
+        {
+            if (correctQuestion == 10)
+            {
+                uiManager.AdjustTimeLeft(10);
+            }
+            else
+            {
+                uiManager.changeScore(-1);
+            }
+        }
+
        
         // Time.timeScale = 1;
         // SceneManager.LoadScene(1);
@@ -474,14 +486,7 @@ public class QuizManager : MonoBehaviour
         }
 
         ContinueBtn.SetActive(true);
-        if (correctQuestion == 10)
-        {
-            uiManager.AdjustTimeLeft(10);
-        }
-        else
-        {
-            uiManager.changeScore(-1);
-        }
+       
     }
      public void QuizSkip(){
         QuizUI.SetActive(false);
