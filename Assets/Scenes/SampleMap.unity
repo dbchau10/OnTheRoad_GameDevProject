@@ -33290,7 +33290,7 @@ MonoBehaviour:
   WarningTimer: {fileID: 1314835758}
   Snackbar: {fileID: 1693260482}
   checkOpenQuiz: 0
-  QuizTraffic: {fileID: 0}
+  QuizTraffic: {fileID: 2054652615}
 --- !u!61 &1669450974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39264,7 +39264,7 @@ MonoBehaviour:
   WarningTimer: {fileID: 1314835758}
   Snackbar: {fileID: 1693260482}
   checkOpenQuiz: 0
-  QuizTraffic: {fileID: 0}
+  QuizTraffic: {fileID: 2054652615}
 --- !u!1 &1999641928
 GameObject:
   m_ObjectHideFlags: 0
