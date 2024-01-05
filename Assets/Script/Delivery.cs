@@ -22,7 +22,13 @@ public class Delivery : MonoBehaviour
 
     [SerializeField] Driver2 parent;
 
-  
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -63,6 +69,7 @@ public class Delivery : MonoBehaviour
         if (other.collider.tag == "SchoolGirl")
         {
             StudentController sc = other.gameObject.GetComponent<StudentController>();
+            audioManager.PlaySFX(audioManager.hitpeople);
             sc.showWarning();
             parent.penalize(-1);
             StartCoroutine(CountDownToDisapear(sc));

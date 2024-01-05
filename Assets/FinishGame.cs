@@ -14,24 +14,24 @@ public class FinishGame : MonoBehaviour
     }
    void OnTriggerEnter2D(Collider2D other)
    {
-       if (other.tag == "HeadCar"){
+        if (other.tag == "HeadCar")
+        {
 
-        if (currentScene.name != "SampleMapLevel3"){
-        if (uiManager.getCurrentScore() >= 20){
-        FindObjectOfType<GameManagerUI>().GameCompleted();
+            if (currentScene.name != "SampleMapLevel3")
+            {
+                FindObjectOfType<GameManagerUI>().GameCompleted();
+            }
+            else
+            {
+                if (uiManager.getCurrentScore() > -5)
+                {
+                    FindObjectOfType<GameManagerUI>().GameCompleted();
+                }
+                else
+                {
+                    FindObjectOfType<GameManagerUI>().GameOver();
+                }
+            }
         }
-        else {
-            FindObjectOfType<GameManagerUI>().GameOver();
-        }
-        }
-        else {
-              if (uiManager.getCurrentScore() > -5){
-        FindObjectOfType<GameManagerUI>().GameCompleted();
-        }
-        else {
-            FindObjectOfType<GameManagerUI>().GameOver();
-        }
-        }
-       }
-   }
+    }
 }
