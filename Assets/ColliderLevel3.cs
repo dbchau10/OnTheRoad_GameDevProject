@@ -11,6 +11,7 @@ public class ColliderLevel3 : MonoBehaviour
     public GameObject Snackbar;
     public GameObject QuizScene;
     public GameObject QuizMarathon;
+    public int hitCount = 0;
 
     public void showWarning()
     {
@@ -42,9 +43,10 @@ public class ColliderLevel3 : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // tru 1 diem
+        hitCount++;
         Debug.Log("tru 1 diem");
 
-        if (firstEnter)
+        if (firstEnter && hitCount > 1)
         if (collision.tag == "HeadCar")
         {
             QuizScene.SetActive(true);

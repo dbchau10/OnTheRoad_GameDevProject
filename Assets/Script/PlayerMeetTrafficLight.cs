@@ -38,6 +38,10 @@ public class PlayerMeetTrafficLight : MonoBehaviour
             WarningTimer.GetComponent<WarningTimer>().StopWarning();
             var snackbar = Snackbar.GetComponent<MoveModal>();
             snackbar.gameObject.SetActive(false);
+            PlayerPrefs.SetString("hasCheckpoint", "true");
+            PlayerPrefs.SetFloat("PlayerX", other.transform.position.x);
+            PlayerPrefs.SetFloat("PlayerY", other.transform.position.y);
+            PlayerPrefs.SetFloat("PlayerZ", other.transform.position.z);
         }
     }
   
@@ -53,10 +57,6 @@ public class PlayerMeetTrafficLight : MonoBehaviour
                 var snackbar = Snackbar.GetComponent<MoveModal>();
                 snackbar.content = "Bạn đang vượt đèn đỏ!";
                 snackbar.gameObject.SetActive(true);
-                PlayerPrefs.SetString("hasCheckpoint", "true");
-                PlayerPrefs.SetFloat("PlayerX", other.transform.position.x);
-                PlayerPrefs.SetFloat("PlayerY", other.transform.position.y);
-                PlayerPrefs.SetFloat("PlayerZ", other.transform.position.z);
             }
    }
 }

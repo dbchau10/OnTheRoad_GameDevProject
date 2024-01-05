@@ -12,7 +12,7 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private Text _restartText;
 
-    private float startTime;
+    public static float startTime;
     private float restSeconds;
     private int roundedRestSeconds;
     private float displaySeconds;
@@ -94,8 +94,12 @@ public class UiManager : MonoBehaviour
 
         else
         {
+            Debug.Log(Time.time);
             Timeleft = Time.time - startTime;
+            Debug.Log("left: " + Timeleft + ", start: " + startTime);
             restSeconds = CountDownSeconds - (Timeleft);
+            if (Timeleft < 0) startTime = Time.time;
+            Debug.Log("rest: " + restSeconds);
             roundedRestSeconds = Mathf.CeilToInt(restSeconds);
             displaySeconds = roundedRestSeconds % 60;
             displayMinutes = (roundedRestSeconds / 60) % 60;

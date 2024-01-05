@@ -22,7 +22,7 @@ public class SpeedLimitedRoad : MonoBehaviour
 
     public void showWarning()
     {
-        WarningTimer.GetComponent<WarningTimer>().Warning();
+        if (WarningTimer) WarningTimer.GetComponent<WarningTimer>().Warning();
         var snackbar = Snackbar.GetComponent<MoveModal>();
         snackbar.content = "Bạn đang đi quá tốc độ, vui lòng đi chậm lại!!";
         snackbar.gameObject.SetActive(true);
@@ -30,7 +30,7 @@ public class SpeedLimitedRoad : MonoBehaviour
 
     public void closeWarning()
     {
-        WarningTimer.GetComponent<WarningTimer>().StopWarning();
+        if (WarningTimer) WarningTimer.GetComponent<WarningTimer>().StopWarning();
         var snackbar = Snackbar.GetComponent<MoveModal>();
         snackbar.gameObject.SetActive(false);
     }

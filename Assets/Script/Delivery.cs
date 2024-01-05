@@ -103,7 +103,7 @@ public class Delivery : MonoBehaviour
         if (collision.tag == "Level3")
         {
             var road = collision.transform.GetComponent<ColliderLevel3>();
-            isPennalize = true;
+            if(road.hitCount > 1) isPennalize = true;
             // Debug.Log("One way road");
             // parent.penalize(-1);
             // road.showWarning();
