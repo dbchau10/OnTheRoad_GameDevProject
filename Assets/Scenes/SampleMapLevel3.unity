@@ -1403,7 +1403,7 @@ MonoBehaviour:
   _restartText: {fileID: 895838412}
   CountDownSeconds: 150
   _timer: {fileID: 1555481353}
-  gameUIControl: {fileID: 0}
+  gameUIControl: {fileID: 2082040407}
 --- !u!1 &202879459
 GameObject:
   m_ObjectHideFlags: 0
