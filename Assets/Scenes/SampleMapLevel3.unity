@@ -1583,6 +1583,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &232398563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2662,6 +2663,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &308765855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3037,6 +3039,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!114 &342912731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4489,6 +4492,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!68 &493134176
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -5793,6 +5797,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &716663124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8078,6 +8083,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &895495959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8324,6 +8330,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!1 &895838410
 GameObject:
   m_ObjectHideFlags: 0
@@ -8640,6 +8647,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &905199765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10923,6 +10931,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1110513305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11383,6 +11392,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1140946108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15782,46 +15792,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -2, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -1, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 0, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 2, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -16042,16 +16012,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 2, y: -1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 3, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -16217,26 +16177,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 60
       m_TileSpriteIndex: 62
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -3, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 2, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16467,26 +16407,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 60
       m_TileSpriteIndex: 62
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -3, y: 1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 2, y: 1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16797,16 +16717,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 55
       m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 2, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -17192,16 +17102,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -3, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 34, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -17287,16 +17187,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 60
       m_TileSpriteIndex: 62
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -3, y: 4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -17407,16 +17297,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 29
       m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 2, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -17823,46 +17703,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: -3, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -2, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 55
-      m_TileSpriteIndex: 52
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 29
-      m_TileSpriteIndex: 57
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: 6, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 55
@@ -24362,7 +24202,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1d9e76852abf5664895b73233081071b, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c6ecadd5e7928354e811fb486f387abb, type: 2}
-  - m_RefCount: 120
+  - m_RefCount: 112
     m_Data: {fileID: 11400000, guid: 5a73220ea805ccc4ead3d466ca7fec05, type: 2}
   - m_RefCount: 33
     m_Data: {fileID: 11400000, guid: e3368eecb6b250d46a2ca2178eb64309, type: 2}
@@ -24414,7 +24254,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 3811500c8f5aaf84bb667f14dede2a00, type: 2}
   - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: 103d2331f9af4904b895878fda857528, type: 2}
-  - m_RefCount: 35
+  - m_RefCount: 26
     m_Data: {fileID: 11400000, guid: 500017b131ecd4d42841daad3457d0a5, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: e8224c5e79be76849a0dca8d8a0dae15, type: 2}
@@ -24539,7 +24379,7 @@ Tilemap:
     m_Data: {fileID: 622400095, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1552932377, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
-  - m_RefCount: 35
+  - m_RefCount: 26
     m_Data: {fileID: -1472638021, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: 1772410036, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
@@ -24549,7 +24389,7 @@ Tilemap:
     m_Data: {fileID: 540723184, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 891697592, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
-  - m_RefCount: 120
+  - m_RefCount: 112
     m_Data: {fileID: -151336902, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2100318486, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
@@ -24566,7 +24406,7 @@ Tilemap:
   - m_RefCount: 9
     m_Data: {fileID: 596727835, guid: 03baf7d838a59f44e88eb033e19e2ad7, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1146
+  - m_RefCount: 1129
     m_Data:
       e00: 1
       e01: 0
@@ -24675,7 +24515,7 @@ Tilemap:
       e32: 1e-44
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1146
+  - m_RefCount: 1129
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 6.7885e-41, g: 6.7885e-41, b: 6.7885e-41, a: 6.7885e-41}
@@ -25127,6 +24967,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1233754157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27135,6 +26976,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1502699563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27457,6 +27299,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!114 &1531805376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27687,6 +27530,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1550398367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28158,6 +28002,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1603847967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29436,6 +29281,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!68 &1677468765
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -29800,6 +29646,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1725082402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30010,6 +29857,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!68 &1730267662
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -30385,6 +30233,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!61 &1755151874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31898,6 +31747,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!1 &1969530992
 GameObject:
   m_ObjectHideFlags: 0
@@ -32027,6 +31877,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!114 &1972481192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32893,6 +32744,7 @@ MonoBehaviour:
   Snackbar: {fileID: 481848878}
   QuizScene: {fileID: 916263367}
   QuizMarathon: {fileID: 302942057}
+  hitCount: 0
 --- !u!68 &2055130425
 EdgeCollider2D:
   m_ObjectHideFlags: 0
